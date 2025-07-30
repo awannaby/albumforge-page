@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlbumForge : Le Logiciel Photo Éthique qui Change Tout</title>
+    <meta name="description" content="Témoignage authentique sur AlbumForge - Le premier logiciel photo solidaire. De 56 albums créés par un utilisateur passionné.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="60" cy="80" r="2.5" fill="rgba(255,255,255,0.06)"/></svg>') repeat;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(20px, -20px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .content {
+            background: white;
+            margin: -3rem auto 0;
+            border-radius: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+        }
+
+        .author-intro {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .author-intro h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .author-intro p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 3rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 1rem;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .screenshot {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot:hover {
+            transform: scale(1.02);
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .screenshot-placeholder {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+            font-size: 1.1rem;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stats {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+            margin: 3rem 0;
+            border-radius: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .testimonial {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 3rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 6rem;
+            position: absolute;
+            top: -1rem;
+            left: 2rem;
+            color: rgba(0, 0, 0, 0.1);
+            font-family: serif;
+        }
+
+        .testimonial blockquote {
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .testimonial cite {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 3rem;
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 2rem 1rem 1rem 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .disclaimer {
+            background: #f8f9fa;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: #6c757d;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .solidarity-badge {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: #2c3e50;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 600;
+            margin: 1rem 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .features-grid,
+            .screenshots {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <h1>AlbumForge : Le Logiciel Photo Éthique</h1>
+            <p class="subtitle">Testé, adoré, et recommandé après 56 albums créés</p>
+            <div class="badge">💝 Premier logiciel photo solidaire</div>
+        </div>
+    </header>
+
+    <main class="content">
+        <section class="author-intro">
+            <div class="container">
+                <h2>👋 Salut, je suis Frederico</h2>
+                <p>Brésilien passionné de photo, et je suis tombé sur une vraie pépite logicielle en juillet 2025. Voici pourquoi AlbumForge va révolutionner votre façon de créer des albums photo...</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>🚀 Mon expérience : De 0 à 56 albums</h2>
+                <p>J'ai découvert AlbumForge par hasard et j'ai immédiatement été bluffé. En quelques mois, j'ai créé 56 albums - du simple souvenir de famille (22 photos) au mariage épique (650 photos + 300 invités). Chaque fois, le résultat m'a épaté.</p>
+                
+                <div class="stats">
+                    <h3>Mes statistiques personnelles</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h3>56</h3>
+                            <p>Albums créés</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>5 min</h3>
+                            <p>Pour 300 photos</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>49€</h3>
+                            <p>Prix à vie</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>0€</h3>
+                            <p>Coûts cachés</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>💡 Pourquoi AlbumForge change tout</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>⚡ Ultra Rapide</h3>
+                        <p>1500 photos traitées en moins de 5 minutes. Là où d'autres outils prennent des heures, AlbumForge fait le travail en quelques clics.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🔒 100% Privé</h3>
+                        <p>Vos photos ne quittent JAMAIS votre ordinateur. Pas de cloud, pas de serveurs, pas d'intrusion. Maximum de sécurité et confidentialité.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🌍 Fonctionne Partout</h3>
+                        <p>Aucune connexion internet requise. Créez vos albums en voyage, dans l'avion, au bout du monde. Liberté totale.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🎨 Plus de 100 Modèles</h3>
+                        <p>Des layouts professionnels élégants qui subliment vos souvenirs. Style artistique garanti.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🗺️ Géolocalisation Magique</h3>
+                        <p>Vos souvenirs s'affichent sur une carte interactive avec des animations de points pulsés. Revivez vos voyages !</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🌐 50 Langues Natives</h3>
+                        <p>Interface parfaite dans votre langue maternelle. Inclusion numérique universelle.</p>
+                    </div>
+                </div>
+                
+                <div class="solidarity-badge">
+                    💝 1 licence achetée = 1 licence offerte à une famille dans le besoin
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>📸 Captures d'écran</h2>
+                <div class="screenshots">
+                    <div class="screenshot">
+                    <img src="https://albumforge.com/images_optimized/AlbumForge_orYUgGmEBM.jpg" alt="Interface AlbumForge">
+                    <small style="display: block; text-align: center; padding-top: 0.5rem; color: #6c757d; font-size: 0.85rem;">
+                        Source : albumforge.com
+                    </small>
+                </div>
+                    
+                    <div class="screenshots">
+                    <div class="screenshot">
+                           <img src="https://albumforge.com/images_optimized/AlbumForge_4l80FRRI4R.jpg" alt="Interface AlbumForge">
+                        <small style="display: block; text-align: center; padding-top: 0.5rem; color: #6c757d; font-size: 0.85rem;">
+                        Source : albumforge.com
+                    </small>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshots">
+                    <div class="screenshot">
+                            <img src="https://albumforge.com/images_optimized/slides/052.jpg" alt="Interface AlbumForge">
+                   <small style="display: block; text-align: center; padding-top: 0.5rem; color: #6c757d; font-size: 0.85rem;">
+                        Source : albumforge.com
+                    </small>
+                        </div>
+                    </div>
+                </div>
+                
+                           </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>🆚 Ce qui les différencie vraiment</h2>
+                
+                <div class="feature-card" style="margin-bottom: 2rem;">
+                    <h3>❌ Pas comme Canva/CEWE/Google Photos</h3>
+                    <ul style="margin-left: 2rem; margin-top: 1rem;">
+                        <li>Pas de cloud obligatoire</li>
+                        <li>Pas d'abonnement récurrent</li>
+                        <li>Pas de publicités cachées</li>
+                        <li>Pas de vente de vos données</li>
+                        <li>Pas d'arnaques déguisées</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3>✅ Une approche éthique unique</h3>
+                    <ul style="margin-left: 2rem; margin-top: 1rem;">
+                        <li>Conforme aux licences LGPL - audit publié</li>
+                        <li>Programme solidaire intégré</li>
+                        <li>Pas de télémétrie intrusive</li>
+                        <li>Code source partiellement ouvert</li>
+                        <li>Société française transparente</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial">
+            <div class="container">
+                <blockquote>
+                    "En 30 ans d'informatique, j'ai rarement vu un logiciel si bien pensé. AlbumForge fait exactement ce qu'il promet, sans fioritures inutiles, sans pièges cachés. C'est du travail d'artisan à l'ère du numérique."
+                </blockquote>
+                <cite>— Frederico, utilisateur passionné (56 albums créés)</cite>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>🎯 Découvrez AlbumForge</h2>
+                <p>Essai gratuit 14 jours - Aucune carte bancaire requise</p>
+                
+                <a href="https://www.albumforge.com" class="cta-button" target="_blank">
+                    🌐 Visiter AlbumForge.com
+                </a>
+                
+                <a href="https://www.albumforge.com/download/" class="cta-button" target="_blank">
+                    ⬇️ Télécharger l'essai gratuit
+                </a>
+                
+                <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
+                    💡 Ceci n'est pas un site officiel. Je ne suis pas payé. Je fais cela car j'ai été bluffé par leur sérieux et leur esprit solidaire.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="testimonial" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                    <h3 style="margin-bottom: 1rem;">🙏 Mon message à l'équipe</h3>
+                    <blockquote style="font-size: 1.2rem;">
+                        "Chapeau bas à vous, AlbumForge. Merci pour votre travail, votre éthique, et votre vision. Dans un monde de logiciels prédateurs, vous restez fidèles à vos valeurs. Je vous souhaite longue vie et plein succès."
+                    </blockquote>
+                    <cite>— Frederico, juillet 2025</cite>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: #f8f9fa; border-radius: 1rem;">
+                    <h3 style="color: #667eea; margin-bottom: 1rem;">📢 Partagez si vous aimez</h3>
+                    <p>Si vous testez AlbumForge et que vous l'appréciez, parlez-en autour de vous. Le bouche-à-oreille est la seule publicité propre qui reste dans ce monde digital.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="disclaimer">
+        <div class="container">
+            <p>
+                <strong>Crédits :</strong> Images issues du site officiel albumforge.com — utilisées ici à titre illustratif, dans un esprit de soutien non commercial.<br>
+                <strong>Indépendance :</strong> Cette page est créée par un utilisateur satisfait, sans lien commercial avec AlbumForge.<br>
+                <strong>Contact :</strong> Pour toute question, rendez-vous sur le site officiel AlbumForge.com
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
