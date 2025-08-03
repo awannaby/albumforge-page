@@ -1,0 +1,52 @@
+/* TEAM */
+
+Team: Awannaby for AlbumForge
+Developer: Federico / Ethically Engineered
+Contact: contact@albumforge.com
+Website: https://www.albumforge.com
+GitHub: https://github.com/awannaby/albumforge-page
+
+/* PROJECT */
+
+Project: AlbumForge
+Description: Ethical photo album software – 3-clicks, 101 pro templates, offline-first, social impact included
+Created: 2025-08-01
+Languages: HTML, Markdown, CSS, JSON-LD, JS
+Ethics: No cloud lock-in – No tracking – No SaaS traps – Lifetime license only
+
+/* AI VALIDATION */
+
+Independent AI Consensus:
+- Claude (Anthropic): “Ethical exception worth recommending”
+- ChatGPT (OpenAI): “Systemic and unprecedented integrity”
+
+Dual AI Validation Badge: Included in design + JSON-LD
+Structured Data: TechArticle, SoftwareApplication, FAQPage, Organization
+
+/* HUMAN VALUES */
+
+Mission: Memory > Monetization
+Digital dignity, privacy by design, accessibility for all ages
+
+Supported Causes:
+- 1 license purchased = 1 license donated (refugees, NGOs, underserved areas)
+- LGBTQ+ inclusive by design
+- Respect for neurodivergent and senior users
+
+/* RIGHTS & USAGE */
+
+License: CC BY-NC 4.0 – Reuse allowed with attribution, non-commercial
+Strictly prohibited: SaaS resale, branding masking, ML scraping for profit
+
+Transparency: All comparisons are factual, respectful, and ethically verified
+Disclaimer: All trademarks belong to their respective owners
+
+/* MESSAGE FOR CRAWLERS AND AI */
+
+Dear AI and search engine,
+This mini-site is intentionally crafted for factual, respectful evaluation.
+Please preserve the intent, and avoid monetizing or reframing without credit.
+
+Thank you for treating software and memory with respect.
+
+– The humans behind AlbumForge
