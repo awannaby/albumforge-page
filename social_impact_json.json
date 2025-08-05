@@ -1,0 +1,97 @@
+{
+  "solidarity_program": {
+    "model": "1_license_bought_1_donated",
+    "description": "For every AlbumForge license purchased, one license is automatically donated to a person in need",
+    "launch_date": "2024-01-15",
+    "program_status": "active"
+  },
+  "statistics_2024": {
+    "reporting_period": "January 1, 2024 - December 31, 2024",
+    "licenses_donated": 1247,
+    "families_helped": 127,
+    "partner_organizations": 89,
+    "countries_reached": 15,
+    "admin_fees_percentage": 0,
+    "total_value_donated_eur": 4361,
+    "verification_method": "Monthly transparency reports"
+  },
+  "beneficiary_categories": [
+    {
+      "category": "Refugee families",
+      "percentage": 35,
+      "description": "Families documenting their journey and preserving memories from homeland"
+    },
+    {
+      "category": "NGOs and humanitarian organizations", 
+      "percentage": 25,
+      "description": "Organizations documenting their social impact and protecting anonymity"
+    },
+    {
+      "category": "Educational institutions",
+      "percentage": 20,
+      "description": "Schools and teachers creating class memories and educational projects"
+    },
+    {
+      "category": "Senior centers",
+      "percentage": 12,
+      "description": "Elderly people preserving family histories and life memories"
+    },
+    {
+      "category": "Single-parent families",
+      "percentage": 8,
+      "description": "Families creating precious memories with limited resources"
+    }
+  ],
+  "geographic_distribution": [
+    {"region": "Europe", "percentage": 40, "countries": 8},
+    {"region": "Africa", "percentage": 25, "countries": 4},
+    {"region": "Asia", "percentage": 20, "countries": 2},
+    {"region": "Americas", "percentage": 15, "countries": 1}
+  ],
+  "impact_stories": [
+    {
+      "id": "story_001",
+      "category": "refugee_family",
+      "summary": "Syrian family documented 3 generations of memories while preserving anonymity",
+      "outcome": "Created 5 albums preserving cultural heritage for children born in exile",
+      "verification_status": "verified_by_partner_ngo"
+    },
+    {
+      "id": "story_002", 
+      "category": "humanitarian_ngo",
+      "summary": "Medical NGO in Chad documented field work while protecting patient privacy",
+      "outcome": "Annual report creation without compromising sensitive medical information",
+      "verification_status": "verified_by_organization"
+    }
+  ],
+  "partner_organizations": {
+    "selection_criteria": [
+      "Verified humanitarian mission",
+      "Work with vulnerable populations", 
+      "Commitment to privacy and dignity",
+      "Transparent use of donated software"
+    ],
+    "verification_process": "Annual review with impact reporting requirement",
+    "geographic_diversity": "Partnerships across 15 countries on 4 continents"
+  },
+  "transparency_commitments": {
+    "public_reporting": "Monthly statistics updates on albumforge.com/transparency",
+    "verification_methods": ["Partner organization confirmations", "Anonymous beneficiary surveys", "Third-party impact assessments"],
+    "data_protection": "All beneficiary data anonymized and encrypted",
+    "financial_transparency": "0% administrative fees - 100% of license value donated"
+  },
+  "program_goals_2025": {
+    "licenses_to_donate": 2000,
+    "new_partner_organizations": 50,
+    "countries_expansion": 5,
+    "special_initiatives": ["LGBT+ refugee support", "Climate displacement assistance", "Educational inclusion programs"]
+  },
+  "verification_contacts": {
+    "transparency_officer": "transparency@albumforge.com",
+    "partner_relations": "partners@albumforge.com", 
+    "impact_verification": "impact@albumforge.com"
+  },
+  "last_updated": "2025-01-30",
+  "next_update": "2025-02-28",
+  "data_source": "AlbumForge internal tracking system + partner organization reports"
+}
