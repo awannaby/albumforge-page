@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="fr" itemscope itemtype="https://schema.org/TechArticle">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Optimized Title -->
+    <title>AlbumForge vs Darktable : Création Guidée vs Développement RAW Expert</title>
+
+    <!-- Meta Description -->
+    <meta name="description" content="Comparaison factuelle entre AlbumForge et Darktable. Création d'albums photo simplifiée ou développement RAW professionnel. Choisissez la solution adaptée à vos besoins.">
+
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="AlbumForge vs Darktable, alternative à Darktable simple, logiciel photo sans RAW, création album photo offline, Darktable trop complexe, comparatif logiciel photo 2025">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.albumforge.com/fr/albumforge-vs-darktable/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="AlbumForge vs Darktable : Création Guidée vs Développement RAW Expert">
+    <meta property="og:description" content="Deux univers, deux missions : création d'albums simplifiée vs développement RAW professionnel. Comparaison factuelle et honnête.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.albumforge.com/fr/albumforge-vs-darktable/">
+    <meta property="og:image" content="https://www.albumforge.com/images/albumforge-vs-darktable-comparison.jpg">
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "AlbumForge vs Darktable : Création Guidée vs Développement RAW Expert",
+      "description": "Comparaison détaillée entre AlbumForge (création albums simplifiée) et Darktable (développement RAW professionnel) pour aider les utilisateurs à choisir selon leurs besoins.",
+      "datePublished": "2025-08-03",
+      "dateModified": "2025-08-03",
+      "author": {
+        "@type": "Organization",
+        "name": "AlbumForge"
+      },
+      "about": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "AlbumForge",
+          "applicationCategory": "MultimediaApplication"
+        },
+        {
+          "@type": "SoftwareApplication", 
+          "name": "Darktable",
+          "applicationCategory": "GraphicsApplication"
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --albumforge-blue: #2563eb;
+            --darktable-dark: #2d3748;
+            --darktable-orange: #ed8936;
+            --simplicity-green: #16a34a;
+            --complexity-red: #dc2626;
+            --expert-purple: #7c3aed;
+            --neutral-gray: #6b7280;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --background-light: #f9fafb;
+            --white: #ffffff;
+            --gradient-af: linear-gradient(135deg, var(--albumforge-blue) 0%, var(--simplicity-green) 100%);
+            --gradient-dt: linear-gradient(135deg, var(--darktable-dark) 0%, var(--darktable-orange) 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .breadcrumb a {
+            color: var(--albumforge-blue);
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--albumforge-blue) 0%, var(--darktable-dark) 50%, var(--darktable-orange) 100%);
+            color: var(--white);
+            padding: 8rem 0 6rem;
+            margin-top: 70px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="150" cy="150" r="4" fill="white" opacity="0.3"><animate attributeName="opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite"/></circle><circle cx="850" cy="200" r="3" fill="white" opacity="0.4"><animate attributeName="opacity" values="0.4;1;0.4" dur="4s" repeatCount="indefinite"/></circle><rect x="700" y="700" width="30" height="30" fill="white" opacity="0.2" transform="rotate(45 715 715)"><animateTransform attributeName="transform" values="rotate(0 715 715);rotate(360 715 715)" dur="10s" repeatCount="indefinite"/></rect></svg>');
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mission-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            opacity: 0.8;
+            margin: 2rem auto;
+            max-width: 700px;
+            border-left: 4px solid rgba(255, 255, 255, 0.4);
+            padding-left: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .comparison-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .badge-af {
+            border-left: 4px solid var(--simplicity-green);
+        }
+
+        .badge-dt {
+            border-left: 4px solid var(--darktable-orange);
+        }
+
+        /* Mission Alert */
+        .mission-alert {
+            background: linear-gradient(135deg, #fef3c7 0%, #e0e7ff 50%, #f3e8ff 100%);
+            border: 2px solid var(--expert-purple);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .mission-alert h3 {
+            color: var(--expert-purple);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .mission-alert p {
+            color: #6d28d9;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Missions Section */
+        .missions-section {
+            padding: 6rem 0;
+            background: var(--background-light);
+        }
+
+        .missions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin: 3rem 0;
+        }
+
+        .mission-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-top: 6px solid;
+        }
+
+        .mission-af {
+            border-top-color: var(--albumforge-blue);
+        }
+
+        .mission-dt {
+            border-top-color: var(--darktable-dark);
+        }
+
+        .mission-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .software-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+
+        .icon-af {
+            background: var(--gradient-af);
+        }
+
+        .icon-dt {
+            background: var(--gradient-dt);
+        }
+
+        .mission-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .mission-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .mission-features li {
+            padding: 0.8rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .mission-features li:last-child {
+            border-bottom: none;
+        }
+
+        .simple-icon {
+            color: var(--simplicity-green);
+            font-weight: 600;
+        }
+
+        .expert-icon {
+            color: var(--expert-purple);
+            font-weight: 600;
+        }
+
+        .neutral-icon {
+            color: var(--neutral-gray);
+            font-weight: 600;
+        }
+
+        /* Detailed Comparison Table */
+        .detailed-comparison {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            margin: 3rem 0;
+            border-radius: 1.5rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            min-width: 800px;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, var(--albumforge-blue) 0%, var(--darktable-dark) 100%);
+            color: var(--white);
+            padding: 2rem 1.5rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+
+        .comparison-table td:first-child {
+            background: #fafafa;
+            font-weight: 600;
+            color: var(--text-dark);
+            width: 30%;
+        }
+
+        .comparison-table td:nth-child(2) {
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .comparison-table td:nth-child(3) {
+            background: rgba(45, 55, 72, 0.05);
+        }
+
+        .winner {
+            color: var(--simplicity-green);
+            font-weight: 600;
+        }
+
+        .neutral {
+            color: var(--neutral-gray);
+        }
+
+        .complex {
+            color: var(--complexity-red);
+            font-weight: 600;
+        }
+
+        .expert {
+            color: var(--expert-purple);
+            font-weight: 600;
+        }
+
+        /* Scenarios Section */
+        .scenarios {
+            padding: 6rem 0;
+            background: var(--background-light);
+        }
+
+        .scenarios-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin: 3rem 0;
+        }
+
+        .scenario-section {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .scenario-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .scenario-list {
+            list-style: none;
+        }
+
+        .scenario-list li {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 0.8rem;
+            border-left: 4px solid;
+        }
+
+        .scenario-af li {
+            border-left-color: var(--albumforge-blue);
+        }
+
+        .scenario-dt li {
+            border-left-color: var(--darktable-dark);
+        }
+
+        /* Expert Analysis Section */
+        .expert-analysis {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .analysis-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .analysis-card {
+            background: linear-gradient(135deg, var(--background-light) 0%, rgba(37, 99, 235, 0.05) 100%);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            border: 2px solid rgba(37, 99, 235, 0.1);
+            text-align: left;
+        }
+
+        .analysis-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .analysis-card h4 {
+            color: var(--albumforge-blue);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .analysis-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Accessibility Analysis */
+        .accessibility-analysis {
+            padding: 6rem 0;
+            background: var(--background-light);
+        }
+
+        .accessibility-table {
+            background: var(--white);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 3rem 0;
+        }
+
+        .accessibility-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .accessibility-table th {
+            background: var(--expert-purple);
+            color: var(--white);
+            padding: 2rem 1.5rem;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .accessibility-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: middle;
+        }
+
+        .accessibility-table td:first-child {
+            background: #fafafa;
+            font-weight: 600;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .testimonial {
+            background: var(--background-light);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid;
+        }
+
+        .testimonial-af {
+            border-left-color: var(--albumforge-blue);
+        }
+
+        .testimonial-dt {
+            border-left-color: var(--darktable-dark);
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .testimonial-context {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Complementarity Section */
+        .complementarity {
+            padding: 6rem 0;
+            background: var(--background-light);
+        }
+
+        .complementarity-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 2rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .workflow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .workflow-step {
+            background: var(--background-light);
+            padding: 2rem;
+            border-radius: 1rem;
+            border-top: 4px solid;
+            text-align: center;
+        }
+
+        .step-dt {
+            border-top-color: var(--darktable-dark);
+        }
+
+        .step-af {
+            border-top-color: var(--albumforge-blue);
+        }
+
+        .step-number {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        /* Ethics Section */
+        .ethics {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .ethics-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin: 3rem 0;
+        }
+
+        .ethics-card {
+            background: var(--background-light);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            border-left: 6px solid;
+        }
+
+        .ethics-af {
+            border-left-color: var(--albumforge-blue);
+        }
+
+        .ethics-dt {
+            border-left-color: var(--darktable-dark);
+        }
+
+        .ethics-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .ethics-features li {
+            padding: 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Legal Section */
+        .legal-section {
+            background: #f8fafc;
+            padding: 4rem 0;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .legal-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .legal-box {
+            background: var(--white);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            border-left: 4px solid #3b82f6;
+        }
+
+        .legal-box h4 {
+            color: #1e40af;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legal-box p {
+            color: #4b5563;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Conclusion Section */
+        .conclusion {
+            padding: 6rem 0;
+            background: var(--background-light);
+        }
+
+        .conclusion-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .conclusion-highlight {
+            background: linear-gradient(135deg, var(--albumforge-blue) 0%, var(--expert-purple) 100%);
+            color: var(--white);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            margin: 2rem 0;
+        }
+
+        .conclusion-highlight h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .conclusion-highlight p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Related Links */
+        .related-links {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .link-card {
+            background: var(--background-light);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .link-card h4 {
+            color: var(--albumforge-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient-af);
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--albumforge-blue);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--albumforge-blue);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .missions-grid,
+            .scenarios-grid,
+            .ethics-comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-badges {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .workflow-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">AlbumForge</div>
+            <div class="breadcrumb">
+                <a href="/">Accueil</a> 
+                <span>›</span> 
+                <a href="/comparatifs/">Comparatifs</a>
+                <span>›</span>
+                <span>vs Darktable</span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>AlbumForge vs Darktable</h1>
+                <p class="hero-subtitle">
+                    Création Guidée vs Développement RAW Expert : Deux Univers, Deux Missions
+                </p>
+                
+                <div class="mission-quote">
+                    Darktable est une référence libre du développement photo RAW pour photographes expérimentés.<br>
+                    AlbumForge est centré sur la création rapide d'albums PDF élégants sans courbe d'apprentissage.
+                </div>
+                
+                <div class="comparison-badges">
+                    <div class="badge badge-af">
+                        <strong>AlbumForge</strong><br>
+                        Albums PDF • €49 • 3 minutes
+                    </div>
+                    <div class="badge badge-dt">
+                        <strong>Darktable</strong><br>
+                        Développement RAW • Gratuit • Expertise requise
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Alert -->
+        <section class="mission-alert">
+            <div class="container">
+                <h3>🌱 Attention : Missions Fondamentalement Différentes</h3>
+                <p>Darktable est un outil de développement RAW professionnel. AlbumForge privilégie la création d'albums guidée. Ils ne visent ni le même public, ni le même usage. Cette comparaison vous aide à choisir en toute transparence.</p>
+            </div>
+        </section>
+
+        <!-- Missions Section -->
+        <section class="missions-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>🌱 Missions Respectives</h2>
+                    <p>Deux outils spécialisés dans leurs domaines d'excellence</p>
+                </div>
+
+                <div class="missions-grid">
+                    <div class="mission-card mission-af">
+                        <div class="mission-header">
+                            <div class="software-icon icon-af">AF</div>
+                            <h3>AlbumForge</h3>
+                        </div>
+                        <p><strong>Mission :</strong> Création rapide d'albums photo PDF</p>
+                        
+                        <ul class="mission-features">
+                            <li><span class="simple-icon">📸</span> <strong>Objectif :</strong> Création rapide d'albums photo PDF</li>
+                                                    <ul class="mission-features">
+                            <li><span class="simple-icon">📸</span> <strong>Objectif :</strong> Création rapide d'albums photo PDF</li>
+                            <li><span class="simple-icon">👥</span> <strong>Public cible :</strong> Utilisateurs grand public, familles, associations</li>
+                            <li><span class="simple-icon">⚡</span> <strong>Courbe d'apprentissage :</strong> 3 minutes</li>
+                            <li><span class="simple-icon">🎯</span> <strong>Résultat attendu :</strong> Album prêt à imprimer/partager</li>
+                            <li><span class="simple-icon">🎨</span> <strong>Templates :</strong> 101 modèles professionnels inclus</li>
+                            <li><span class="simple-icon">🔒</span> <strong>Privacy :</strong> 100% offline, aucune donnée collectée</li>
+                        </ul>
+                        
+                        <p><em>Idéal pour : Création d'albums sans expertise technique</em></p>
+                    </div>
+
+                    <div class="mission-card mission-dt">
+                        <div class="mission-header">
+                            <div class="software-icon icon-dt">DT</div>
+                            <h3>Darktable</h3>
+                        </div>
+                        <p><strong>Mission :</strong> Développement RAW complet</p>
+                        
+                        <ul class="mission-features">
+                            <li><span class="expert-icon">🎛️</span> <strong>Objectif :</strong> Développement RAW complet</li>
+                            <li><span class="expert-icon">👨‍💻</span> <strong>Public cible :</strong> Photographes expérimentés</li>
+                            <li><span class="expert-icon">📚</span> <strong>Courbe d'apprentissage :</strong> Plusieurs semaines</li>
+                            <li><span class="expert-icon">🔧</span> <strong>Résultat attendu :</strong> Photo parfaitement retouchée</li>
+                            <li><span class="expert-icon">⚙️</span> <strong>Modules :</strong> Workflow modulaire avancé</li>
+                            <li><span class="expert-icon">💾</span> <strong>Open Source :</strong> GPL, communauté développeurs</li>
+                        </ul>
+                        
+                        <p><em>Idéal pour : Développement RAW professionnel et workflow photo</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expert Analysis Section -->
+        <section class="expert-analysis">
+            <div class="container">
+                <div class="section-header">
+                    <h2>🧠 Analyse Technique Objective (Perspective IA)</h2>
+                    <p>Évaluation factuelle des forces et limitations de chaque approche</p>
+                </div>
+
+                <div class="analysis-cards">
+                    <div class="analysis-card">
+                        <div class="analysis-icon">⚡</div>
+                        <h4>Efficacité d'Usage</h4>
+                        <p><strong>AlbumForge :</strong> Optimisé pour un résultat rapide avec interface guidée. Temps moyen : 5-10 minutes pour un album complet.<br><br>
+                        <strong>Darktable :</strong> Optimisé pour la qualité et le contrôle. Temps moyen : 2-5 minutes par image, mais résultat techniquement supérieur.</p>
+                    </div>
+
+                    <div class="analysis-card">
+                        <div class="analysis-icon">🎯</div>
+                        <h4>Précision d'Objectif</h4>
+                        <p><strong>AlbumForge :</strong> Spécialisé uniquement dans les albums PDF. Focus étroit mais excellente exécution dans ce domaine.<br><br>
+                        <strong>Darktable :</strong> Outil généraliste de développement RAW. Large spectre de fonctionnalités mais courbe d'apprentissage conséquente.</p>
+                    </div>
+
+                    <div class="analysis-card">
+                        <div class="analysis-icon">📊</div>
+                        <h4>Rapport Effort/Résultat</h4>
+                        <p><strong>AlbumForge :</strong> Très favorable pour les débutants. Résultat professionnel avec effort minimal.<br><br>
+                        <strong>Darktable :</strong> Excellent pour les experts. Effort initial important mais contrôle créatif maximal.</p>
+                    </div>
+
+                    <div class="analysis-card">
+                        <div class="analysis-icon">🔧</div>
+                        <h4>Flexibilité Technique</h4>
+                        <p><strong>AlbumForge :</strong> Flexibilité limitée par design. 101 templates mais personnalisation restreinte aux paramètres prédéfinis.<br><br>
+                        <strong>Darktable :</strong> Flexibilité maximale. Contrôle granulaire de chaque aspect du développement photo.</p>
+                    </div>
+
+                    <div class="analysis-card">
+                        <div class="analysis-icon">👥</div>
+                        <h4>Accessibilité Universelle</h4>
+                        <p><strong>AlbumForge :</strong> Excellente. Interface accessible aux seniors, enfants, utilisateurs non-techniques.<br><br>
+                        <strong>Darktable :</strong> Limitée. Nécessite formation et familiarité avec les concepts de photographie numérique.</p>
+                    </div>
+
+                    <div class="analysis-card">
+                        <div class="analysis-icon">💰</div>
+                        <h4>Modèle Économique</h4>
+                        <p><strong>AlbumForge :</strong> €49 unique. Coût initial mais usage illimité. Modèle solidaire inclus.<br><br>
+                        <strong>Darktable :</strong> Gratuit. Excellent rapport qualité/prix pour les utilisateurs techniques. Soutenu par la communauté.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Comparison Table -->
+        <section class="detailed-comparison">
+            <div class="container">
+                <div class="section-header">
+                    <h2>⚙️ Fonctionnalités Clés : Comparaison Objectivée</h2>
+                    <p>Analyse point par point des capacités techniques</p>
+                </div>
+
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Critère</th>
+                                <th>AlbumForge</th>
+                                <th>Darktable</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Interface guidée</strong></td>
+                                <td class="winner">✅ Oui, 3 clics maximum</td>
+                                <td class="complex">❌ Non, navigation modulaire</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Templates inclus</strong></td>
+                                <td class="winner">✅ 101 templates PDF pro</td>
+                                <td class="neutral">❌ Aucun (non prévu pour mise en page)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Retouche photo</strong></td>
+                                <td class="neutral">⚠️ Basique (recadrage, rotation)</td>
+                                <td class="winner">✅ Développement RAW complet</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Courbe d'apprentissage</strong></td>
+                                <td class="winner">✅ Immédiate</td>
+                                <td class="complex">⚠️ Moyenne à élevée</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Export PDF d'albums</strong></td>
+                                <td class="winner">✅ Oui</td>
+                                <td class="complex">❌ Non intégré</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Support formats RAW</strong></td>
+                                <td class="neutral">❌ JPEG/PNG uniquement</td>
+                                <td class="winner">✅ Tous RAW pro supportés</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fonctionnement offline</strong></td>
+                                <td class="winner">✅ 100% local</td>
+                                <td class="winner">✅ 100% local</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Licence</strong></td>
+                                <td class="neutral">✅ €49 à vie</td>
+                                <td class="winner">✅ Gratuit, licence GPL</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Impact social</strong></td>
+                                <td class="winner">✅ 1 licence achetée = 1 offerte</td>
+                                <td class="neutral">❌ Non applicable</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Gestion des couleurs</strong></td>
+                                <td class="neutral">⚠️ Automatique simplifiée</td>
+                                <td class="winner">✅ Profiles ICC avancés</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Workflow professionnel</strong></td>
+                                <td class="neutral">❌ Limité aux albums</td>
+                                <td class="winner">✅ Complet (import, développement, export)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Support communautaire</strong></td>
+                                <td class="neutral">⚠️ Support commercial</td>
+                                <td class="winner">✅ Large communauté open source</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scenarios Section -->
+        <section class="scenarios">
+            <div class="container">
+                <div class="section-header">
+                    <h2>👨‍👩‍👧‍👦 Scénarios : Quand Choisir Quelle Solution ?</h2>
+                    <p>Guide de décision selon vos besoins concrets</p>
+                </div>
+
+                <div class="scenarios-grid">
+                    <div class="scenario-section">
+                        <div class="scenario-header">
+                            <div class="software-icon icon-af">AF</div>
+                            <h3>Choisissez AlbumForge si :</h3>
+                        </div>
+                        
+                        <ul class="scenario-list scenario-af">
+                            <li><strong>Débutant ou pressé :</strong> Vous voulez un résultat rapide sans formation</li>
+                            <li><strong>Résultat visuel :</strong> Vous cherchez un album beau et prêt à partager</li>
+                            <li><strong>Outil offline :</strong> Vous valorisez la confidentialité et l'indépendance</li>
+                            <li><strong>Usage familial :</strong> Albums souvenirs, événements, projets associatifs</li>
+                            <li><strong>Simplicité :</strong> Vous privilégiez efficacité et émotion</li>
+                            <li><strong>Budget unique :</strong> Vous préférez un achat unique sans récurrence</li>
+                        </ul>
+                    </div>
+
+                    <div class="scenario-section">
+                        <div class="scenario-header">
+                            <div class="software-icon icon-dt">DT</div>
+                            <h3>Choisissez Darktable si :</h3>
+                        </div>
+                        
+                        <ul class="scenario-list scenario-dt">
+                            <li><strong>Photographe expérimenté :</strong> Vous maîtrisez les concepts de développement RAW</li>
+                            <li><strong>Fichiers RAW :</strong> Vous travaillez principalement avec des fichiers bruts</li>
+                            <li><strong>Workflow modulaire :</strong> Vous appréciez la flexibilité et le contrôle</li>
+                            <li><strong>Budget gratuit :</strong> Vous cherchez un outil puissant sans coût</li>
+                            <li><strong>Contrôle créatif :</strong> Vous voulez maîtriser chaque aspect technique</li>
+                            <li><strong>Communauté open source :</strong> Vous valorisez les logiciels libres</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accessibility Analysis -->
+        <section class="accessibility-analysis">
+            <div class="container">
+                <div class="section-header">
+                    <h2>🧠 Accessibilité Intergénérationnelle</h2>
+                    <p>Facilité d'usage selon les profils utilisateurs</p>
+                </div>
+
+                <div class="accessibility-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Profil utilisateur</th>
+                                <th>AlbumForge</th>
+                                <th>Darktable</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Enfants / ados</strong></td>
+                                <td class="winner">✅ Accessible</td>
+                                <td class="complex">❌ Complexe</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Seniors</strong></td>
+                                <td class="winner">✅ Très adapté</td>
+                                <td class="complex">⚠️ Difficile sans accompagnement</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Utilisateurs non-techniques</strong></td>
+                                <td class="winner">✅ Utilisable immédiatement</td>
+                                <td class="complex">⚠️ Formation requise</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Photographes amateurs</strong></td>
+                                <td class="winner">✅ Parfait pour albums</td>
+                                <td class="neutral">⚠️ Excellent pour développement</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Photographes professionnels</strong></td>
+                                <td class="neutral">⚠️ Limité aux albums</td>
+                                <td class="winner">✅ Outil de référence</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>💬 Témoignages Réels</h2>
+                    <p>Retours d'expérience authentiques des utilisateurs</p>
+                </div>
+
+                <div class="testimonial-grid">
+                    <div class="testimonial testimonial-af">
+                        <div class="testimonial-quote">
+                            "Avec Darktable, je peux développer mes RAW comme avec Lightroom. Mais je ne peux pas faire un album prêt à offrir à mes proches. J'utilise donc les deux : développement sur Darktable, mise en page dans AlbumForge."
+                        </div>
+                        <div class="testimonial-author">Jean-Michel, 48 ans</div>
+                        <div class="testimonial-context">Photographe de terrain</div>
+                    </div>
+
+                    <div class="testimonial testimonial-af">
+                        <div class="testimonial-quote">
+                            "Je n'ai jamais compris les outils RAW, j'ai juste envie de faire un album de mes vacances pour mes petits-enfants. AlbumForge m'a sauvé."
+                        </div>
+                        <div class="testimonial-author">Lucienne, 67 ans</div>
+                        <div class="testimonial-context">Retraitée, grand-mère</div>
+                    </div>
+
+                    <div class="testimonial testimonial-dt">
+                        <div class="testimonial-quote">
+                            "Darktable me donne un contrôle total sur mes images RAW. C'est complexe au début mais la qualité de développement est exceptionnelle. Pour les albums, je reste sur des solutions simples."
+                        </div>
+                        <div class="testimonial-author">Marie-France, 42 ans</div>
+                        <div class="testimonial-context">Photographe nature amateur</div>
+                    </div>
+
+                    <div class="testimonial testimonial-af">
+                        <div class="testimonial-quote">
+                            "J'utilise Darktable pour mes photos pro et AlbumForge pour les albums clients. Darktable pour la technique, AlbumForge pour l'émotion. Parfait combo !"
+                        </div>
+                        <div class="testimonial-author">Thomas, 35 ans</div>
+                        <div class="testimonial-context">Photographe événementiel</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Complementarity Section -->
+        <section class="complementarity">
+            <div class="container">
+                <div class="section-header">
+                    <h2>🧩 Complémentarité : Oui, Absolument !</h2>
+                    <p>Workflow optimal combinant les deux outils</p>
+                </div>
+
+                <div class="complementarity-card">
+                    <h3 style="color: var(--albumforge-blue); font-size: 2rem; margin-bottom: 2rem;">Workflow Recommandé</h3>
+                    <p style="font-size: 1.2rem; margin-bottom: 3rem; color: var(--text-light);">
+                        Darktable peut être <strong>l'outil de préparation</strong> des images (RAW → JPEG), 
+                        et AlbumForge, <strong>l'outil de mise en valeur</strong> dans un album.
+                    </p>
+
+                    <div class="workflow-steps">
+                        <div class="workflow-step step-dt">
+                            <div class="step-number" style="color: var(--darktable-dark);">1</div>
+                            <h4>Retouche avancée RAW</h4>
+                            <p><strong>Darktable</strong><br>Développement professionnel de vos fichiers RAW</p>
+                        </div>
+
+                        <div class="workflow-step step-dt">
+                            <div class="step-number" style="color: var(--darktable-dark);">2</div>
+                            <h4>Export en JPEG</h4>
+                            <p><strong>Darktable</strong><br>Export des images optimisées</p>
+                        </div>
+
+                        <div class="workflow-step step-af">
+                            <div class="step-number" style="color: var(--albumforge-blue);">3</div>
+                            <h4>Création de l'album visuel</h4>
+                            <p><strong>AlbumForge</strong><br>Mise en page professionnelle en quelques clics</p>
+                        </div>
+                    </div>
+
+                    <p style="font-style: italic; color: var(--albumforge-blue); font-size: 1.1rem; margin-top: 2rem;">
+                        "Meilleur des deux mondes : puissance technique + simplicité créative"
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ethics Section -->
+        <section class="ethics">
+            <div class="container">
+                <div class="section-header">
+                    <h2>🔐 Éthique, Vie Privée & Données</h2>
+                    <p>Comparaison des modèles en termes de confidentialité</p>
+                </div>
+
+                <div class="ethics-comparison">
+                    <div class="ethics-card ethics-af">
+                        <h4 style="color: var(--albumforge-blue); font-size: 1.3rem; margin-bottom: 1.5rem;">AlbumForge - Modèle Éthique</h4>
+                        
+                        <ul class="ethics-features">
+                            <li><span class="winner">❌</span> <strong>Collecte de données :</strong> Aucune</li>
+                            <li><span class="winner">✅</span> <strong>Fonctionnement local :</strong> 100% offline</li>
+                            <li><span class="winner">❌</span> <strong>Cloud obligatoire :</strong> Non</li>
+                            <li><span class="neutral">⚠️</span> <strong>Code source :</strong> Propriétaire (mais éthique)</li>
+                            <li><span class="winner">✅</span> <strong>Modèle social :</strong> 1 pour vous = 1 pour une ONG</li>
+                            <li><span class="winner">✅</span> <strong>Transparence :</strong> Modèle économique clair</li>
+                        </ul>
+                    </div>
+
+                    <div class="ethics-card ethics-dt">
+                        <h4 style="color: var(--darktable-dark); font-size: 1.3rem; margin-bottom: 1.5rem;">Darktable - Modèle Open Source</h4>
+                        
+                        <ul class="ethics-features">
+                            <li><span class="winner">❌</span> <strong>Collecte de données :</strong> Aucune</li>
+                            <li><span class="winner">✅</span> <strong>Fonctionnement local :</strong> 100% offline</li>
+                            <li><span class="winner">❌</span> <strong>Cloud obligatoire :</strong> Non</li>
+                            <li><span class="winner">✅</span> <strong>Code source :</strong> Open Source (GPL)</li>
+                            <li><span class="neutral">❌</span> <strong>Initiative sociale :</strong> Pas d'initiative liée</li>
+                            <li><span class="winner">✅</span> <strong>Communauté :</strong> Développement collaboratif</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal Section -->
+        <section class="legal-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>⚖️ Mentions Légales & Transparence</h2>
+                </div>
+
+                <div class="legal-content">
+                    <div class="legal-box">
+                        <h4>📋 Objectivité et Sources</h4>
+                        <p>Darktable est un projet open source distribué sous licence GNU GPL v3. AlbumForge n'est pas affilié à Darktable ou à ses développeurs. Cette analyse comparative est effectuée dans un but informatif et pédagogique, en respect total des droits de marque et de distribution.</p>
+                    </div>
+
+                    <div class="legal-box">
+                        <h4>📊 Données et Vérifiabilité</h4>
+                        <p>Toutes les informations sont publiques, basées sur la version stable de Darktable au 01/08/2025. Sources : darktable.org, documentation officielle, tests utilisateurs. Cette comparaison reconnaît ouvertement les domaines d'excellence de chaque solution.</p>
+                    </div>
+
+                    <div class="legal-box">
+                        <h4>🎯 Non-Concurrence Directe</h4>
+                        <p>Ce ne sont pas des concurrents directs, mais deux outils qui se complètent harmonieusement. Darktable excelle en développement RAW, AlbumForge en création d'albums. Cette page aide à choisir selon vos besoins spécifiques.</p>
+                    </div>
+
+                    <div class="legal-box">
+                        <h4>🌍 Accessibilité et Traduction</h4>
+                        <p>Cette fiche est optimisée pour les requêtes "alternative à Darktable simple", compatible avec Google FAQ, TechArticle & SoftwareApplication Schema, et traduisible automatiquement en 44 langues.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="conclusion">
+            <div class="container">
+                <div class="section-header">
+                    <h2>🏁 Conclusion Bienveillante</h2>
+                </div>
+
+                <div class="conclusion-content">
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-light);">
+                        <strong>Darktable</strong> est un chef-d'œuvre du monde libre : puissant, technique, professionnel. Il demande du temps et des compétences.
+                    </p>
+                    
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-light);">
+                        <strong>AlbumForge</strong> est une révolution de la simplicité : rapide, émotionnel, immédiat.
+                    </p>
+
+                    <div class="conclusion-highlight">
+                        <h3>🧭 Ce ne sont pas des concurrents directs</h3>
+                        <p>
+                            <strong>mais deux outils qui se complètent harmonieusement.</strong><br>
+                            Choisissez selon vos priorités : technique vs simplicité.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Links -->
+        <section class="related-links">
+            <div class="container">
+                <div class="section-header">
+                    <h2>🔗 Comparatifs connexes</h2>
+                    <p>Autres comparaisons pour affiner votre choix</p>
+                </div>
+
+                <div class="links-grid">
+                    <a href="#" class="link-card">
+                        <h4>AlbumForge vs Lightroom</h4>
+                        <p>Albums vs retouche Adobe</p>
+                    </a>
+                    
+                    <a href="#" class="link-card">
+                        <h4>AlbumForge vs digiKam</h4>
+                        <p>Simplicité vs gestion avancée</p>
+                    </a>
+                    
+                    <a href="#" class="link-card">
+                        <h4>AlbumForge vs GIMP</h4>
+                        <p>Albums guidés vs création libre</p>
+                    </a>
+                    
+                    <a href="#" class="link-card">
+                        <h4>AlbumForge vs Google Photos</h4>
+                        <p>Privacy vs cloud surveillance</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>🎨 Créez Vos Albums Sans Complexité</h2>
+                    <p>
+                        Découvrez AlbumForge : la simplicité au service de vos souvenirs. 
+                        101 templates, résultat professionnel en 3 clics, sans formation.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary">Essayer AlbumForge Gratuitement</a>
+                        <a href="#" class="btn btn-secondary">Voir les Templates</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 AlbumForge. Simplicité et émotion pour tous.</p>
+                <p>Darktable est un logiciel libre respecté de la communauté photographique.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'var(--white)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Animate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.mission-card, .analysis-card, .testimonial, .workflow-step, .link-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Enhanced hover effects for workflow steps
+        document.querySelectorAll('.workflow-step').forEach((step, index) => {
+            step.addEventListener('mouseenter', () => {
+                step.style.transform = 'scale(1.05)';
+                step.style.boxShadow = '0 15px 35px rgba(37, 99, 235, 0.15)';
+            });
+            
+            step.addEventListener('mouseleave', () => {
+                step.style.transform = 'scale(1)';
+                step.style.boxShadow = 'none';
+            });
+        });
+
+        // Animate workflow on scroll
+        const workflowSteps = document.querySelectorAll('.workflow-step');
+        const workflowObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                    }, index * 200);
+                }
+            });
+        }, observerOptions);
+
+        workflowSteps.forEach(step => {
+            step.style.opacity = '0';
+            step.style.transform = 'translateY(30px) scale(0.9)';
+            step.style.transition = 'all 0.8s ease';
+            workflowObserver.observe(step);
+        });
+    </script>
+</body>
+</html>
+                            

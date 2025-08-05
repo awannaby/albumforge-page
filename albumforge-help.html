@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aide et Guide d'utilisation - AlbumForge</title>
+    <meta name="description" content="Guide complet d'utilisation d'AlbumForge : installation, premiers pas, gestion des DPI, formats supportés, dépannage et astuces d'expert.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #7c3aed;
+            --accent-color: #f59e0b;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --info-color: #3b82f6;
+            --danger-color: #ef4444;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --background-light: #f9fafb;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            --gradient-help: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .lang-switch {
+            background: var(--background-light);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switch:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-help);
+            color: var(--white);
+            padding: 8rem 0 6rem;
+            margin-top: 70px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="60" cy="80" r="2.5" fill="rgba(255,255,255,0.06)"/></svg>') repeat;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(20px, -20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+        }
+
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 1;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            background: var(--white);
+            margin: -3rem auto 0;
+            border-radius: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .search-suggestions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .search-suggestion {
+            background: var(--background-light);
+            padding: 1rem;
+            border-radius: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .search-suggestion:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Main Content Layout */
+        .help-content {
+            padding: 6rem 0;
+        }
+
+        /* Help Sections */
+        .help-main {
+            background: var(--white);
+        }
+
+        .help-section {
+            margin-bottom: 4rem;
+            padding: 3rem;
+            background: var(--white);
+            border-radius: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .help-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .help-section h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--text-dark);
+        }
+
+        .help-section p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Step-by-step guides */
+        .step-guide {
+            background: var(--background-light);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .step:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .step-number {
+            background: var(--primary-color);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .step-content p {
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+
+        /* Info boxes */
+        .info-box {
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin: 2rem 0;
+            border-left: 4px solid;
+        }
+
+        .info-box.tip {
+            background: #f0f9ff;
+            border-color: var(--info-color);
+        }
+
+        .info-box.warning {
+            background: #fffbeb;
+            border-color: var(--warning-color);
+        }
+
+        .info-box.success {
+            background: #f0fdf4;
+            border-color: var(--success-color);
+        }
+
+        .info-box.danger {
+            background: #fef2f2;
+            border-color: var(--danger-color);
+        }
+
+        .info-box h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .info-box.tip h4 { color: var(--info-color); }
+        .info-box.warning h4 { color: var(--warning-color); }
+        .info-box.success h4 { color: var(--success-color); }
+        .info-box.danger h4 { color: var(--danger-color); }
+
+        /* Tables */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--white);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .comparison-table th {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--background-light);
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--background-light);
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #e5e7eb;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .quick-action {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .quick-action:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .quick-action .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .quick-action h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .quick-action p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .help-content {
+                padding: 2rem 0;
+            }
+            
+            .search-bar {
+                margin: -2rem auto 0;
+                padding: 2rem;
+            }
+            
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="/fr/" class="logo">AlbumForge</a>
+            <ul class="nav-links">
+                <li><a href="/fr/">Accueil</a></li>
+                <li><a href="/fr/fonctionnalites.html">Fonctionnalités</a></li>
+                <li><a href="/fr/ethique.html">Éthique</a></li>
+                <li><a href="/fr/temoignages.html">Témoignages</a></li>
+                <li><a href="/fr/aide.html" class="active">Aide</a></li>
+            </ul>
+            <a href="/en/help.html" class="lang-switch">🇬🇧 English</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="breadcrumb">
+                        <a href="/fr/">Accueil</a> / Guide d'aide
+                    </div>
+                    
+                    <h1>Guide d'utilisation AlbumForge</h1>
+                    <p class="subtitle">Tout ce que vous devez savoir pour créer des albums extraordinaires.<br>
+                    De l'installation aux astuces d'expert, nous vous accompagnons pas à pas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="search-bar">
+            <div class="container">
+                <input type="text" class="search-input" placeholder="🔍 Rechercher dans l'aide : installation, DPI, formats..." onkeyup="searchHelp(this.value)">
+                
+                <div class="search-suggestions">
+                    <a href="#installation" class="search-suggestion">
+                        <strong>⬇️ Installation</strong><br>
+                        <small>Windows</small>
+                    </a>
+                    <a href="#premiers-pas" class="search-suggestion">
+                        <strong>🚀 Premiers pas</strong><br>
+                        <small>Créer votre premier album</small>
+                    </a>
+                    <a href="#dpi-qualite" class="search-suggestion">
+                        <strong>📐 DPI et qualité</strong><br>
+                        <small>Optimiser pour l'impression</small>
+                    </a>
+                    <a href="#formats" class="search-suggestion">
+                        <strong>📁 Formats supportés</strong><br>
+                        <small>Photos et export</small>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-content">
+            <div class="container">
+                <main class="help-main">
+                    <section id="installation" class="help-section">
+                        <h2>⬇️ Installation d'AlbumForge</h2>
+                        
+                        <div class="quick-actions">
+                            <div class="quick-action">
+                                <div class="icon">🪟</div>
+                                <h3>Windows</h3>
+                                <p>Windows 10/11 - 32 et 64 bits</p>
+                            </div>
+
+                            <div class="quick-action">
+                                <div class="icon">🐧</div>
+                                <h3>Linux</h3>
+                                <p>Ubuntu, Debian, Fedora - AppImage</p>
+                            </div>
+                        </div>
+
+                        <h3>Installation étape par étape</h3>
+                        <div class="step-guide">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Téléchargement</h4>
+                                    <p>Rendez-vous sur <a href="https://www.albumforge.com/download/" target="_blank">albumforge.com/download</a> et choisissez votre système d'exploitation.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Installation</h4>
+                                    <p>Exécutez le fichier téléchargé et suivez l'assistant d'installation. Aucune configuration complexe requise.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Premier lancement</h4>
+                                    <p>Lancez AlbumForge. L'assistant de configuration vous guidera pour choisir votre langue et vos préférences.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Activation</h4>
+                                    <p>Utilisez votre clé de licence ou profitez de l'essai gratuit 14 jours pour découvrir toutes les fonctionnalités.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-box tip">
+                            <h4>💡 Astuce d'installation</h4>
+                            <p>AlbumForge ne nécessite aucune connexion internet pour fonctionner. Une fois installé, vous pouvez créer vos albums même hors ligne !</p>
+                        </div>
+                    </section>
+
+                    <section id="premiers-pas" class="help-section">
+                        <h2>🚀 Créer votre premier album</h2>
+                        
+                        <p>AlbumForge rend la création d'albums vraiment simple. Voici comment créer votre premier chef-d'œuvre en quelques minutes.</p>
+
+                        <div class="step-guide">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Sélectionner vos photos</h4>
+                                    <p>Glissez-déposez vos photos depuis votre dossier vers AlbumForge. Vous pouvez sélectionner entre 1 et 1000 photos d'un coup !</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Choisir un modèle</h4>
+                                    <p>Parcourez plus de 100 modèles professionnels. Prévisualisez en temps réel pour voir le rendu avec vos photos.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Personnaliser (optionnel)</h4>
+                                    <p>Ajustez les couleurs, les polices, ajoutez des légendes ou modifiez l'ordre des photos selon vos goûts.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Exporter et partager</h4>
+                                    <p>Exportez en PDF haute qualité, créez un site web interactif ou générez un diaporama animé. C'est prêt !</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-box success">
+                            <h4>✅ Conseil de pro</h4>
+                            <p>Pour votre premier album, commencez avec 20-50 photos maximum. Vous découvrirez la magie d'AlbumForge plus facilement !</p>
+                        </div>
+                    </section>
+
+                    <section id="interface" class="help-section">
+                        <h2>🖥️ Interface utilisateur</h2>
+                        
+                        <p>AlbumForge propose une interface moderne et intuitive, conçue pour être accessible aux débutants tout en offrant des fonctionnalités avancées aux experts.</p>
+
+                        <h3>Vue d'ensemble de l'interface</h3>
+                        <div class="step-guide">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Barre d'outils principale</h4>
+                                    <p>Accès rapide aux fonctions essentielles : Nouveau projet, Ouvrir, Sauvegarder, Exporter. Tout à portée de clic.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Zone de prévisualisation</h4>
+                                    <p>Aperçu en temps réel de votre album. Zoomez, naviguez entre les pages, visualisez le résultat final.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Panneau des modèles</h4>
+                                    <p>Plus de 100 modèles classés par catégories : Famille, Voyage, Mariage, Professionnel, Artistique.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Outils de personnalisation</h4>
+                                    <p>Couleurs, polices, espacement, rotation des photos. Tout est modifiable en quelques clics.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Raccourcis clavier utiles</h3>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Action</th>
+                                    <th>Windows</th>
+                                    <th>Mac</th>
+                                    <th>Linux</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Nouveau projet</strong></td>
+                                    <td>Ctrl + N</td>
+                                    <td>Cmd + N</td>
+                                    <td>Ctrl + N</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ouvrir projet</strong></td>
+                                    <td>Ctrl + O</td>
+                                    <td>Cmd + O</td>
+                                    <td>Ctrl + O</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sauvegarder</strong></td>
+                                    <td>Ctrl + S</td>
+                                    <td>Cmd + S</td>
+                                    <td>Ctrl + S</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Exporter</strong></td>
+                                    <td>Ctrl + E</td>
+                                    <td>Cmd + E</td>
+                                    <td>Ctrl + E</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Plein écran</strong></td>
+                                    <td>F11</td>
+                                    <td>Cmd + Ctrl + F</td>
+                                    <td>F11</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="info-box tip">
+                            <h4>💡 Astuce d'interface</h4>
+                            <p>Double-cliquez sur n'importe quelle photo dans l'aperçu pour accéder rapidement aux options de cette photo spécifique (rotation, recadrage, légende).</p>
+                        </div>
+                    </section>
+
+                    <section id="dpi-qualite" class="help-section">
+                        <h2>📐 DPI et qualité d'impression</h2>
+                        
+                        <p>AlbumForge vous offre un contrôle total sur la qualité de vos exports. Voici tout ce que vous devez savoir sur les DPI (dots per inch).</p>
+
+                        <h3>Comprendre les DPI</h3>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Utilisation</th>
+                                    <th>DPI recommandés</th>
+                                    <th>Qualité</th>
+                                    <th>Taille fichier</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Écran / Web</strong></td>
+                                    <td>72-96 DPI</td>
+                                    <td>Excellente pour l'affichage</td>
+                                    <td>Légère</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Impression standard</strong></td>
+                                    <td>150-200 DPI</td>
+                                    <td>Bonne qualité d'impression</td>
+                                    <td>Modérée</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Impression pro</strong></td>
+                                    <td>300 DPI</td>
+                                    <td>Qualité professionnelle</td>
+                                    <td>Importante</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Impression premium</strong></td>
+                                    <td>600 DPI</td>
+                                    <td>Qualité exceptionnelle</td>
+                                    <td>Très importante</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3>Configuration des DPI dans AlbumForge</h3>
+                        <div class="step-guide">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Accéder aux réglages d'export</h4>
+                                    <p>Dans le menu "Exporter", cliquez sur "Options avancées" pour accéder aux réglages de qualité.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Choisir la résolution</h4>
+                                    <p>Sélectionnez la résolution adaptée à votre usage : 150 DPI pour un usage courant, 300 DPI pour l'impression professionnelle.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Optimisation automatique</h4>
+                                    <p>AlbumForge optimise automatiquement vos photos pour la résolution choisie, en préservant les détails importants.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-box warning">
+                            <h4>⚠️ Attention aux DPI trop élevés</h4>
+                            <p>600 DPI créent des fichiers très volumineux (>100 MB). Utilisez cette résolution uniquement pour des impressions grand format ou des exigences professionnelles spécifiques.</p>
+                        </div>
+                    </section>
+
+                    <section id="formats" class="help-section">
+                        <h2>📁 Formats supportés</h2>
+                        
+                        <h3>Formats photo d'import</h3>
+                        <div class="quick-actions">
+                            <div class="quick-action">
+                                <div class="icon">📸</div>
+                                <h3>Standards</h3>
+                                <p>JPEG, PNG, TIFF, BMP, GIF</p>
+                            </div>
+                            <div class="quick-action">
+                                <div class="icon">📷</div>
+                                <h3>RAW</h3>
+                                <p>CR2, NEF, ARW, DNG, ORF</p>
+                            </div>
+                            <div class="quick-action">
+                                <div class="icon">📱</div>
+                                <h3>Modernes</h3>
+                                <p>HEIC, HEIF, WebP, AVIF</p>
+                            </div>
+                        </div>
+
+                        <h3>Formats d'export</h3>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Format</th>
+                                    <th>Usage recommandé</th>
+                                    <th>Avantages</th>
+                                    <th>Limitations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>PDF</strong></td>
+                                    <td>Impression, partage universel</td>
+                                    <td>Compatible partout, haute qualité</td>
+                                    <td>Taille de fichier importante</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Site Web HTML</strong></td>
+                                    <td>Partage en ligne, interactivité</td>
+                                    <td>Cartes, animations, responsive</td>
+                                    <td>Nécessite un hébergement web</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Diaporama</strong></td>
+                                    <td>Présentation, écrans</td>
+                                    <td>Animations, musique de fond</td>
+                                    <td>Lecture sur ordinateur uniquement</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Images JPEG</strong></td>
+                                    <td>Réseaux sociaux, partage rapide</td>
+                                    <td>Léger, compatible universellement</td>
+                                    <td>Perte de mise en page</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="info-box tip">
+                            <h4>💡 Conseil multi-format</h4>
+                            <p>AlbumForge peut exporter le même album dans plusieurs formats simultanément. Créez un PDF pour l'impression ET un site web pour le partage en ligne !</p>
+                        </div>
+                    </section>
+
+                    <section id="geolocalisation" class="help-section">
+                        <h2>🗺️ Géolocalisation et cartes</h2>
+                        
+                        <p>Une des fonctionnalités les plus appréciées d'AlbumForge : transformer vos photos géolocalisées en cartes interactives magiques.</p>
+
+                        <h3>Comment ça fonctionne</h3>
+                        <div class="step-guide">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Lecture automatique</h4>
+                                    <p>AlbumForge lit automatiquement les données GPS stockées dans vos photos (métadonnées EXIF).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Génération de la carte</h4>
+                                    <p>Les points de géolocalisation s'affichent sur une carte interactive avec des animations pulsées.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Navigation interactive</h4>
+                                    <p>Cliquez sur un point pour voir les photos prises à cet endroit. Parfait pour revivre vos voyages !</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-box success">
+                            <h4>✅ Astuce voyage</h4>
+                            <p>Activez la géolocalisation sur votre smartphone avant vos voyages. AlbumForge créera automatiquement une carte de votre périple !</p>
+                        </div>
+
+                        <div class="info-box warning">
+                            <h4>⚠️ Vie privée</h4>
+                            <p>Vos données de géolocalisation restent sur votre ordinateur. AlbumForge n'envoie jamais ces informations sur internet.</p>
+                        </div>
+                    </section>
+
+                    <section id="export" class="help-section">
+                        <h2>📤 Options d'export avancées</h2>
+                        
+                        <h3>Paramètres d'export PDF</h3>
+                        <div class="step-guide">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Format de page</h4>
+                                    <p>A4, A3, Lettre US, ou format personnalisé. AlbumForge adapte automatiquement la mise en page.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Orientation</h4>
+                                    <p>Portrait, paysage, ou mixte selon le contenu de chaque page pour une optimisation parfaite.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Marges d'impression</h4>
+                                    <p>Configurez les marges selon votre imprimante (3mm pour les imprimantes domestiques, 5mm pour les pros).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Export site web interactif</h3>
+                        <p>Créez un site web complet avec galeries, cartes interactives et navigation fluide.</p>
+                        
+                        <div class="quick-actions">
+                            <div class="quick-action">
+                                <div class="icon">📱</div>
+                                <h3>Responsive</h3>
+                                <p>Parfait sur mobile, tablette et ordinateur</p>
+                            </div>
+                            <div class="quick-action">
+                                <div class="icon">🌐</div>
+                                <h3>Autonome</h3>
+                                <p>Aucune connexion internet requise</p>
+                            </div>
+                            <div class="quick-action">
+                                <div class="icon">🚀</div>
+                                <h3>Rapide</h3>
+                                <p>Chargement instantané des photos</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="personnalisation" class="help-section">
+                        <h2>🎨 Personnalisation avancée</h2>
+                        
+                        <h3>Thèmes et couleurs</h3>
+                        <p>AlbumForge offre une personnalisation poussée pour que chaque album reflète votre style unique.</p>
+
+                        <div class="step-guide">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Palette de couleurs</h4>
+                                    <p>Choisissez parmi 50 palettes prédéfinies ou créez la vôtre avec le sélecteur de couleurs avancé.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Typographie</h4>
+                                    <p>Plus de 200 polices intégrées + support des polices personnalisées (TTF, OTF).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Logos et filigranes</h4>
+                                    <p>Ajoutez votre logo personnel ou professionnel en filigrane sur toutes les pages.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-box tip">
+                            <h4>💡 Cohérence visuelle</h4>
+                            <p>Sauvegardez vos thèmes personnalisés pour les réutiliser sur vos futurs albums et créer une identité visuelle cohérente.</p>
+                        </div>
+                    </section>
+
+                    <section id="depannage" class="help-section">
+                        <h2>🔧 Dépannage et solutions</h2>
+                        
+                        <h3>Problèmes courants et solutions</h3>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <strong>AlbumForge se lance lentement</strong>
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p><strong>Causes possibles :</strong> Trop de photos dans le dossier de surveillance, antivirus trop strict, disque dur fragmenté.</p>
+                                <p><strong>Solutions :</strong></p>
+                                <ul style="margin-left: 2rem;">
+                                    <li>Désactivez la surveillance automatique des dossiers</li>
+                                    <li>Ajoutez AlbumForge aux exceptions de votre antivirus</li>
+                                    <li>Défragmentez votre disque dur (Windows) ou réparez les permissions (Mac)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <strong>Mes photos apparaissent floues</strong>
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p><strong>Cause :</strong> Résolution d'export trop faible pour la taille d'impression souhaitée.</p>
+                                <p><strong>Solution :</strong> Augmentez les DPI d'export : 150 DPI minimum pour l'impression, 300 DPI pour une qualité professionnelle.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <strong>L'export PDF est très volumineux</strong>
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p><strong>Causes :</strong> DPI trop élevés, compression d'images désactivée, photos très haute résolution.</p>
+                                <p><strong>Solutions :</strong></p>
+                                <ul style="margin-left: 2rem;">
+                                    <li>Réduisez les DPI : 150 DPI suffisent pour la plupart des usages</li>
+                                    <li>Activez la compression intelligente dans les options d'export</li>
+                                    <li>Redimensionnez vos photos avant import si elles font plus de 6000px</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <strong>La géolocalisation ne fonctionne pas</strong>
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p><strong>Cause :</strong> Vos photos ne contiennent pas de données GPS dans leurs métadonnées EXIF.</p>
+                                <p><strong>Solutions :</strong></p>
+                                <ul style="margin-left: 2rem;">
+                                    <li>Vérifiez que la géolocalisation était activée sur votre appareil photo</li>
+                                    <li>Utilisez un logiciel de géotagging pour ajouter manuellement les coordonnées</li>
+                                    <li>Importez des photos prises avec un smartphone récent (géolocalisation active par défaut)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="info-box danger">
+                            <h4>🆘 Support technique</h4>
+                            <p>Si aucune solution ne résout votre problème, contactez le support technique d'AlbumForge via <a href="https://www.albumforge.com/support" target="_blank">albumforge.com/support</a>. Réponse garantie sous 24h !</p>
+                        </div>
+                    </section>
+
+                    <section id="faq" class="help-section">
+                        <h2>❓ Questions fréquemment posées</h2>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <strong>AlbumForge fonctionne-t-il hors ligne ?</strong>
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Absolument ! AlbumForge est conçu pour fonctionner 100% hors ligne. Aucune connexion internet n'est requise pour créer, éditer ou exporter vos albums. Vos photos restent sur votre ordinateur.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <strong>Combien de photos puis-je mettre dans un album ?</strong>
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Il n'y a pas de limite théorique ! Des utilisateurs ont créé des albums avec plus de 2000 photos. En pratique, nous recommandons 500 photos maximum par album pour des performances optimales.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <strong>Puis-je utiliser AlbumForge professionnellement ?</strong>
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Oui ! La licence AlbumForge inclut l'usage commercial. Parfait pour les photographes, agences événementielles, ou toute activité professionnelle nécessitant des albums photo de qualité.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <strong>Mes albums sont-ils compatibles avec d'autres logiciels ?</strong>
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>AlbumForge exporte dans des formats standards (PDF, HTML, JPEG) lisibles partout. Vous n'êtes jamais "enfermé" dans un format propriétaire.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <strong>Le programme solidaire, comment ça marche ?</strong>
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Pour chaque licence vendue, AlbumForge en offre une gratuitement à une ONG, école, ou personne dans le besoin. C'est automatique et transparent, inscrit dans l'ADN de l'entreprise.</p>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background: var(--text-dark); color: var(--white); padding: 3rem 0;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h3 style="margin-bottom: 1rem; color: var(--white);">🤔 Vous ne trouvez pas votre réponse ?</h3>
+                <p style="color: #9ca3af; margin-bottom: 1.5rem;">Notre équipe est là pour vous aider !</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="/fr/contact.html" style="background: var(--gradient-help); color: var(--white); padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600;">
+                        💌 Contacter le support
+                    </a>
+                    <a href="https://www.albumforge.com/support" target="_blank" style="background: rgba(255,255,255,0.1); color: var(--white); padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; border: 1px solid rgba(255,255,255,0.3);">
+                        🌐 Support officiel
+                    </a>
+                </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                <div>
+                    <h4 style="margin-bottom: 1rem; color: var(--white);">📚 Documentation</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem;"><a href="#installation" style="color: #9ca3af; text-decoration: none;">Installation</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#premiers-pas" style="color: #9ca3af; text-decoration: none;">Guide de démarrage</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#dpi-qualite" style="color: #9ca3af; text-decoration: none;">DPI et qualité</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#formats" style="color: #9ca3af; text-decoration: none;">Formats supportés</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1rem; color: var(--white);">🛠️ Fonctionnalités</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem;"><a href="#geolocalisation" style="color: #9ca3af; text-decoration: none;">Géolocalisation</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#export" style="color: #9ca3af; text-decoration: none;">Options d'export</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#personnalisation" style="color: #9ca3af; text-decoration: none;">Personnalisation</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="/fr/fonctionnalites.html" style="color: #9ca3af; text-decoration: none;">Toutes les fonctionnalités</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1rem; color: var(--white);">🔧 Support</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem;"><a href="#depannage" style="color: #9ca3af; text-decoration: none;">Dépannage</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#faq" style="color: #9ca3af; text-decoration: none;">FAQ</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="/fr/contact.html" style="color: #9ca3af; text-decoration: none;">Contact</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="https://www.albumforge.com/support" target="_blank" style="color: #9ca3af; text-decoration: none;">Support officiel</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1rem; color: var(--white);">🌍 Communauté</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem;"><a href="/fr/temoignages.html" style="color: #9ca3af; text-decoration: none;">Témoignages</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="/fr/blog.html" style="color: #9ca3af; text-decoration: none;">Blog</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="https://github.com/albumforge" target="_blank" style="color: #9ca3af; text-decoration: none;">GitHub</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="/fr/astuces.html" style="color: #9ca3af; text-decoration: none;">Astuces d'expert</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; text-align: center;">
+                <p style="color: #9ca3af; margin-bottom: 1rem;">&copy; 2025 AlbumForge. Guide d'aide communautaire créé avec passion.</p>
+                <p style="color: #6b7280; font-size: 0.9rem;"><small>Ce guide n'est pas officiel - visitez <a href="https://www.albumforge.com" target="_blank" style="color: #60a5fa;">albumforge.com</a> pour la documentation officielle</small></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function searchHelp(query) {
+            // Simple search functionality placeholder
+            if (query.length > 2) {
+                console.log('Searching for:', query);
+                // In a real implementation, this would filter content
+            }
+        }
+
+        // FAQ accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    const answer = faqItem.querySelector('.faq-answer');
+                    const icon = this.querySelector('span');
+                    
+                    // Toggle the answer visibility
+                    if (answer.style.display === 'none' || answer.style.display === '') {
+                        answer.style.display = 'block';
+                        icon.textContent = '−';
+                        this.style.backgroundColor = '#e5e7eb';
+                    } else {
+                        answer.style.display = 'none';
+                        icon.textContent = '+';
+                        this.style.backgroundColor = '';
+                    }
+                });
+            });
+
+            // Initialize FAQ - hide all answers by default
+            document.querySelectorAll('.faq-answer').forEach(answer => {
+                answer.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

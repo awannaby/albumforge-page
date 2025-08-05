@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Interface Ultra Simple | AlbumForge - 3 Clics Suffisent, Zéro Formation</title>
+    
+    <meta name="description" content="Interface ultra-simple AlbumForge : 3 clics pour créer albums photo pro. Aucune formation requise, même grand-mère et enfants réussissent. Alternative facile à digiKam, Lightroom, GIMP complexes.">
+    
+    <meta name="keywords" content="logiciel photo facile, interface simple 3 clics, alternative digiKam simple, plus facile Lightroom, logiciel photo débutant, création album sans formation">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --accent: #f59e0b;
+            --success: #16a34a;
+            --easy-green: #10b981;
+            --complex-red: #dc2626;
+            --neutral: #6b7280;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --background: #f9fafb;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, var(--easy-green) 0%, var(--primary) 100%);
+            --complexity-gradient: linear-gradient(135deg, #dc2626 0%, #7f1d1d 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="3" fill="rgba(255,255,255,0.1)"/><path d="M10,50 Q50,20 90,50" stroke="rgba(255,255,255,0.05)" fill="none" stroke-width="2"/><circle cx="75" cy="75" r="2" fill="rgba(255,255,255,0.08)"/></svg>') repeat;
+            animation: float 25s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-10px, -10px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--easy-green);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            border: 2px solid var(--easy-green);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .hero-comparison {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin: 3rem 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-easy {
+            background: rgba(16, 185, 129, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 2px solid var(--easy-green);
+        }
+
+        .hero-vs {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        .hero-complex {
+            background: rgba(220, 38, 38, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 2px solid var(--complex-red);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-alt {
+            background: var(--background);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* 3 Clics Demo */
+        .three-clicks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .click-step {
+            background: var(--white);
+            padding: 3rem 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .click-step:hover {
+            transform: translateY(-8px);
+        }
+
+        .click-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--easy-green);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+
+        .click-icon {
+            font-size: 4rem;
+            margin: 2rem 0 1.5rem;
+            color: var(--easy-green);
+        }
+
+        .click-step h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .click-step p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Comparison Table */
+        .comparison-hero {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            margin: 3rem 0;
+        }
+
+        .comparison-table th {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid #f3f4f6;
+            vertical-align: top;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .easy-win {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--easy-green);
+            font-weight: 600;
+        }
+
+        .complex-lose {
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--complex-red);
+            font-weight: 600;
+        }
+
+        /* User Stories */
+        .user-stories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .user-story {
+            background: var(--white);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid var(--easy-green);
+            transition: transform 0.3s ease;
+        }
+
+        .user-story:hover {
+            transform: translateY(-5px);
+        }
+
+        .user-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .user-story h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .user-quote {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .user-result {
+            background: rgba(16, 185, 129, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            color: var(--easy-green);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Complexity Showcase */
+        .complexity-section {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: var(--white);
+            padding: 5rem 0;
+        }
+
+        .complexity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .complexity-card {
+            background: rgba(220, 38, 38, 0.1);
+            border: 2px solid var(--complex-red);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .complexity-card h4 {
+            color: var(--complex-red);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .complexity-time {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--complex-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .complexity-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            border-top: 4px solid var(--easy-green);
+        }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .benefit-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--easy-green);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--easy-green);
+        }
+
+        /* Animation */
+        .workflow-animation {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem 0;
+            text-align: center;
+            margin: 4rem 0;
+            border-radius: 2rem;
+            color: var(--white);
+        }
+
+        .workflow-steps {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .workflow-step {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            min-width: 150px;
+            position: relative;
+        }
+
+        .workflow-arrow {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-comparison {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .three-clicks,
+            .user-stories,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+            
+            .workflow-steps {
+                flex-direction: column;
+            }
+            
+            .workflow-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-nav">
+                <a href="index.html" class="logo">AlbumForge</a>
+                <nav>
+                    <a href="index.html" style="color: var(--primary); text-decoration: none;">← Retour accueil</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">🖱️ INTERFACE ULTRA SIMPLE</div>
+                <h1>3 Clics Suffisent<br>Zéro Formation Requise</h1>
+                <p class="hero-subtitle">
+                    Enfin un logiciel photo que même grand-mère utilise sans aide !<br>
+                    <strong>Fini la complexité technique, place à la créativité.</strong>
+                </p>
+                
+                <div class="hero-comparison">
+                    <div class="hero-easy">
+                        <h3 style="color: var(--easy-green); margin-bottom: 1rem;">✅ AlbumForge</h3>
+                        <p style="margin: 0; font-weight: 600;">3 clics = Album prêt<br>Aucune formation</p>
+                    </div>
+                    <div class="hero-vs">VS</div>
+                    <div class="hero-complex">
+                        <h3 style="color: var(--complex-red); margin-bottom: 1rem;">❌ Concurrents</h3>
+                        <p style="margin: 0; font-weight: 600;">Semaines apprentissage<br>Expertise requise</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3 Clics Demo -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>🖱️ Le Workflow le Plus Simple au Monde</h2>
+                <p>Trois clics suffisent pour créer un album photo professionnel. Aucune décision technique, aucun paramètre complexe.</p>
+            </div>
+
+            <div class="three-clicks">
+                <div class="click-step">
+                    <div class="click-number">1</div>
+                    <div class="click-icon">📁</div>
+                    <h3>Glisser Photos</h3>
+                    <p>Glissez-déposez vos photos dans AlbumForge. Interface accueille automatiquement tous les formats. <strong>Aucune configuration requise.</strong></p>
+                </div>
+
+                <div class="click-step">
+                    <div class="click-number">2</div>
+                    <div class="click-icon">🎨</div>
+                    <h3>Choisir Style</h3>
+                    <p>Sélectionnez visuellement parmi 101 templates. <strong>Prévisualisation instantanée</strong> avec vos photos. L'IA arrange tout automatiquement.</p>
+                </div>
+
+                <div class="click-step">
+                    <div class="click-number">3</div>
+                    <div class="click-icon">📄</div>
+                    <h3>Exporter Album</h3>
+                    <p>Un clic final et votre album PDF 600 DPI est prêt ! <strong>Qualité professionnelle garantie</strong> sans aucun réglage technique.</p>
+                </div>
+            </div>
+
+            <div class="workflow-animation">
+                <h3 style="margin-bottom: 2rem; font-size: 1.8rem;">⚡ Workflow Temps Réel</h3>
+                <div class="workflow-steps">
+                    <div class="workflow-step">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📁</div>
+                        <div>Import<br><small>10 secondes</small></div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎨</div>
+                        <div>Template<br><small>30 secondes</small></div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📄</div>
+                        <div>Export<br><small>60 secondes</small></div>
+                    </div>
+                </div>
+                <p style="margin-top: 2rem; font-size: 1.3rem; opacity: 0.9;">
+                    <strong>Total : 100 secondes du début à l'album fini !</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison vs Complexes -->
+    <section class="comparison-hero">
+        <div class="container">
+            <div class="section-header" style="color: white;">
+                <h2>🆚 AlbumForge vs Logiciels Complexes</h2>
+                <p style="color: rgba(255,255,255,0.8);">Comparaison objective : simplicité vs expertise technique requise</p>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Critère</th>
+                        <th>digiKam</th>
+                        <th>Adobe Lightroom</th>
+                        <th>GIMP</th>
+                        <th>AlbumForge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="easy-win">Temps apprentissage</td>
+                        <td class="complex-lose">2-4 semaines</td>
+                        <td class="complex-lose">1-2 semaines</td>
+                        <td class="complex-lose">1+ mois</td>
+                        <td class="easy-win">3 minutes</td>
+                    </tr>
+                    <tr>
+                        <td class="easy-win">Configuration initiale</td>
+                        <td class="complex-lose">Base données<br>Catalogues</td>
+                        <td class="complex-lose">Import catalogues<br>Préférences</td>
+                        <td class="complex-lose">Multiples plugins<br>Scripts</td>
+                        <td class="easy-win">Aucune<br>Immédiat</td>
+                    </tr>
+                    <tr>
+                        <td class="easy-win">Formation requise</td>
+                        <td class="complex-lose">Tutoriels<br>Documentation</td>
+                        <td class="complex-lose">Cours en ligne<br>Certification</td>
+                        <td class="complex-lose">Formations<br>Communauté</td>
+                        <td class="easy-win">Auto-explicatif<br>Zéro formation</td>
+                    </tr>
+                    <tr>
+                        <td class="easy-win">Interface utilisateur</td>
+                        <td class="complex-lose">Centaines menus<br>Options cachées</td>
+                        <td class="complex-lose">Modules multiples<br>Panneaux techniques</td>
+                        <td class="complex-lose">Boîtes outils<br>Calques complexes</td>
+                        <td class="easy-win">3 étapes visuelles<br>Workflow guidé</td>
+                    </tr>
+                    <tr>
+                        <td class="easy-win">Premiers résultats</td>
+                        <td class="complex-lose">Après formation<br>Semaines</td>
+                        <td class="complex-lose">Réglages experts<br>Jours</td>
+                        <td class="complex-lose">Maîtrise outils<br>Mois</td>
+                        <td class="easy-win">Immédiat<br>Pro garanti</td>
+                    </tr>
+                    <tr>
+                        <td class="easy-win">Public cible</td>
+                        <td class="complex-lose">Photographes<br>Experts</td>
+                        <td class="complex-lose">Professionnels<br>Avancés</td>
+                        <td class="complex-lose">Graphistes<br>Techniques</td>
+                        <td class="easy-win">Tout le monde<br>Familles</td>
+                    </tr>
+                    <tr>
+                        <td class="easy-win">Accessibilité seniors</td>
+                        <td class="complex-lose">Inadapté<br>Trop complexe</td>
+                        <td class="complex-lose">Interface intimidante<br>Technique</td>
+                        <td class="complex-lose">Impossible<br>Experts seulement</td>
+                        <td class="easy-win">Optimisé<br>Grand-mère friendly</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- User Stories -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>👥 Témoignages Simplicité</h2>
+                <p>Découvrez comment AlbumForge transforme l'expérience photo pour tous les profils utilisateurs</p>
+            </div>
+
+            <div>    <div class="user-story">
+                    <div class="user-avatar">👵</div>
+                        <h4>Mamie Jeanne, 78 ans</h4>
+                        <div class="user-quote">
+                            "Première fois que j'utilise un ordinateur pour mes photos ! Mes petits-enfants m'ont montré en 5 minutes. J'ai créé l'album de famille toute seule. C'est plus simple que mon grille-pain !"
+                        </div>
+                        <div class="user-result">
+                            ✅ Album 47 photos famille en 10 minutes, autonome
+                        </div>
+                    </div>
+                </div>
+
+                <div class="user-story">
+                    <div class="user-avatar">👨‍💻</div>
+                    <h4>Paul, ex-utilisateur digiKam</h4>
+                    <div class="user-quote">
+                        "Après 2 ans de galère avec digiKam (catalogues, bugs, configuration), AlbumForge = révélation ! 3 clics et l'album est fini. Interface enfin logique. Fini les prises de tête techniques."
+                    </div>
+                    <div class="user-result">
+                        ✅ Gain 90% temps vs digiKam, stress éliminé
+                    </div>
+                </div>
+
+                <div class="user-story">
+                    <div class="user-avatar">👩‍👧‍👦</div>
+                    <h4>Sophie, maman de 3 enfants</h4>
+                    <div class="user-quote">
+                        "Enfin un logiciel photo où mes enfants m'aident au lieu du contraire ! Interface si intuitive que mon petit de 8 ans fait ses albums d'école. Fini le stress technique, place au plaisir des souvenirs."
+                    </div>
+                    <div class="user-result">
+                        ✅ Enfants autonomes, albums famille hebdomadaires
+                    </div>
+                </div>
+
+                <div class="user-story">
+                    <div class="user-avatar">🎨</div>
+                    <h4>Marc, graphiste pressé</h4>
+                    <div class="user-quote">
+                        "Client demande album en urgence ? AlbumForge me sauve ! 5 minutes vs 2 heures Photoshop. Qualité identique, efficacité maximale. Outil parfait quand le temps presse."
+                    </div>
+                    <div class="user-result">
+                        ✅ Productivité x20, clients satisfaits délais
+                    </div>
+                </div>
+
+                <div class="user-story">
+                    <div class="user-avatar">🏫</div>
+                    <h4>Mme Dubois, enseignante</h4>
+                    <div class="user-quote">
+                        "Mes élèves de CM2 créent leurs carnets de voyage avec AlbumForge ! Aucune formation nécessaire, ils maîtrisent en 10 minutes. Projet pédagogique réussi grâce à la simplicité."
+                    </div>
+                    <div class="user-result">
+                        ✅ 25 élèves autonomes, projet classe réussi
+                    </div>
+                </div>
+
+                <div class="user-story">
+                    <div class="user-avatar">🏫</div>
+                    <h4>Mme Dubois, enseignante</h4>
+                    <div class="user-quote">
+                        "Mes élèves de CM2 créent leurs carnets de voyage avec AlbumForge ! Aucune formation nécessaire, ils maîtrisent en 10 minutes. Projet pédagogique réussi grâce à la simplicité."
+                    </div>
+                    <div class="user-result">
+                        ✅ 25 élèves autonomes, projet classe réussi
+                    </div>
+                </div>
+
+                <div class="user-story">
+                    <div class="user-avatar">🎯</div>
+                    <h4>Antoine, perfectionniste récupéré</h4>
+                    <div class="user-quote">
+                        "Ex-obsédé Photoshop qui passait des heures sur chaque détail. AlbumForge m'a libéré ! Résultats pros en 3 clics, plus de perfectionnisme paralysant. Je profite enfin de mes photos au lieu de les triturer."
+                    </div>
+                    <div class="user-result">
+                        ✅ Libération créative, plaisir photo retrouvé
+                    </div>
+                </div>
+            </div>
+            </div>        
+    </section>
+
+
+    <!-- Complexity Horror Show -->
+    <section class="complexity-section">
+        <div class="container">
+            <div class="section-header" style="color: white;">
+                <h2>😰 L'Enfer de la Complexité Technique</h2>
+                <p style="color: rgba(255,255,255,0.8);">Ce que vous ne vivrez JAMAIS avec AlbumForge</p>
+            </div>
+
+            <div class="complexity-grid">
+                <div class="complexity-card">
+                    <h4>📚 Formation digiKam</h4>
+                    <div class="complexity-time">14</div>
+                    <div class="complexity-label">jours minimum<br>configuration + apprentissage</div>
+                </div>
+
+                <div class="complexity-card">
+                    <h4>🎛️ Réglages Lightroom</h4>
+                    <div class="complexity-time">47</div>
+                    <div class="complexity-label">panneaux différents<br>à maîtriser</div>
+                </div>
+
+                <div class="complexity-card">
+                    <h4>🔧 Options GIMP</h4>
+                    <div class="complexity-time">200+</div>
+                    <div class="complexity-label">outils et menus<br>à comprendre</div>
+                </div>
+
+                <div class="complexity-card">
+                    <h4>⏰ Temps Photoshop</h4>
+                    <div class="complexity-time">3h</div>
+                    <div class="complexity-label">minimum par album<br>expertise requise</div>
+                </div>
+
+                <div class="complexity-card">
+                    <h4>😵 Taux abandon</h4>
+                    <div class="complexity-time">78%</div>
+                    <div class="complexity-label">utilisateurs abandonnent<br>logiciels complexes</div>
+                </div>
+
+                <div class="complexity-card">
+                    <h4>💸 Formation coût</h4>
+                    <div class="complexity-time">€300+</div>
+                    <div class="complexity-label">cours nécessaires<br>maîtrise logiciels</div>
+                </div>
+            </div>
+
+            <div style="background: rgba(220, 38, 38, 0.1); padding: 3rem; border-radius: 1.5rem; text-align: center; margin: 3rem 0; border: 2px solid var(--complex-red);">
+                <h3 style="color: var(--complex-red); margin-bottom: 2rem; font-size: 1.8rem;">🚫 Frustrations Éliminées avec AlbumForge</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div>❌ Menus cachés incompréhensibles</div>
+                    <div>❌ Paramètres techniques obscurs</div>
+                    <div>❌ Erreurs qui cassent tout</div>
+                    <div>❌ Résultats imprévisibles</div>
+                    <div>❌ Formation obligatoire</div>
+                    <div>❌ Interface intimidante</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>✨ Pourquoi la Simplicité Change Tout</h2>
+                <p>Les avantages concrets d'une interface pensée pour l'humain, pas pour les experts</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Gain de Temps Massif</h3>
+                    <p>3 minutes vs 3 heures pour créer un album. Fini les week-ends perdus en configuration et apprentissage. Plus de temps pour profiter de vos souvenirs.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧠</div>
+                    <h3>Zéro Charge Mentale</h3>
+                    <p>Aucune décision technique à prendre. L'IA gère la complexité, vous gardez le contrôle créatif. Workflow prévisible, résultats garantis.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">👪</div>
+                    <h3>Inclusivité Familiale</h3>
+                    <p>Grands-parents, enfants, tous peuvent participer. Albums famille collaboratifs sans expert technique. Chacun contribue à sa mesure.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Focus sur l'Essentiel</h3>
+                    <p>Plus de temps perdu en technique, focus 100% sur vos souvenirs. L'émotion avant la technologie. Créativité libérée des contraintes.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💝</div>
+                    <h3>Plaisir Retrouvé</h3>
+                    <p>Redécouvrez le plaisir de créer sans frustration. Albums devient moment de bonheur familial. Fini le stress technique paralysant.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚀</div>
+                    <h3>Productivité Instantanée</h3>
+                    <p>Résultats professionnels dès la première utilisation. Pas de courbe d'apprentissage. ROI immédiat sur votre investissement temps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accessibility Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 4rem; border-radius: 2rem; text-align: center;">
+                <h2 style="margin-bottom: 2rem; font-size: 2.5rem;">♿ Accessibilité Universelle</h2>
+                <p style="font-size: 1.3rem; margin-bottom: 3rem; opacity: 0.9;">
+                    AlbumForge est conçu pour que PERSONNE ne soit exclu de la création photo
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 1rem;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">👵</div>
+                        <h4 style="color: #ffd700;">Seniors Friendly</h4>
+                        <p style="margin: 0; opacity: 0.9;">Boutons larges, texte lisible, workflow intuitif. Testé et validé par utilisateurs 70+ ans.</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 1rem;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">👶</div>
+                        <h4 style="color: #ffd700;">Enfants Autonomes</h4>
+                        <p style="margin: 0; opacity: 0.9;">Interface ludique, feedback immédiat. Enfants 8+ créent albums scolaires sans aide adulte.</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 1rem;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌍</div>
+                        <h4 style="color: #ffd700;">50+ Langues</h4>
+                        <p style="margin: 0; opacity: 0.9;">Interface multilingue complète. Même workflow simple dans toutes les langues.</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 1rem;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
+                        <h4 style="color: #ffd700;">Besoins Spéciaux</h4>
+                        <p style="margin: 0; opacity: 0.9;">Contraste optimisé, navigation clavier, assistance vocale compatible.</p>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(255,215,0,0.2); padding: 2rem; border-radius: 1rem; margin-top: 3rem; border: 2px solid #ffd700;">
+                    <p style="font-size: 1.2rem; margin: 0;">
+                        <strong>"La technologie doit s'adapter à l'humain, pas l'inverse"</strong><br>
+                        Notre philosophie design depuis le premier jour
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Stories -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>📊 Avant/Après : Libération Technologique</h2>
+                <p>Transformations réelles d'utilisateurs passés de la complexité à la simplicité</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem; margin: 4rem 0;">
+                <div style="background: white; padding: 3rem; border-radius: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <h3 style="color: var(--complex-red); margin-bottom: 2rem; text-align: center;">😤 AVANT - Avec digiKam</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; color: var(--complex-red);">❌ 2 semaines apprentissage base</li>
+                        <li style="padding: 0.5rem 0; color: var(--complex-red);">❌ Configuration base données</li>
+                        <li style="padding: 0.5rem 0; color: var(--complex-red);">❌ Bugs fréquents, pertes données</li>
+                        <li style="padding: 0.5rem 0; color: var(--complex-red);">❌ Interface intimidante famille</li>
+                        <li style="padding: 0.5rem 0; color: var(--complex-red);">❌ 3h minimum par album</li>
+                        <li style="padding: 0.5rem 0; color: var(--complex-red);">❌ Résultats imprévisibles</li>
+                        <li style="padding: 0.5rem 0; color: var(--complex-red);">❌ Stress technique constant</li>
+                    </ul>
+                </div>
+
+                <div style="background: white; padding: 3rem; border-radius: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <h3 style="color: var(--easy-green); margin-bottom: 2rem; text-align: center;">😊 APRÈS - Avec AlbumForge</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; color: var(--easy-green);">✅ 3 minutes maîtrise totale</li>
+                        <li style="padding: 0.5rem 0; color: var(--easy-green);">✅ Zéro configuration nécessaire</li>
+                        <li style="padding: 0.5rem 0; color: var(--easy-green);">✅ Stabilité parfaite, fiable</li>
+                        <li style="padding: 0.5rem 0; color: var(--easy-green);">✅ Toute famille participe</li>
+                        <li style="padding: 0.5rem 0; color: var(--easy-green);">✅ 5 minutes album fini</li>
+                        <li style="padding: 0.5rem 0; color: var(--easy-green);">✅ Qualité pro garantie</li>
+                        <li style="padding: 0.5rem 0; color: var(--easy-green);">✅ Plaisir créatif pur</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="background: var(--easy-green); color: white; padding: 3rem; border-radius: 1.5rem; text-align: center; margin: 3rem 0;">
+                <h3 style="margin-bottom: 2rem; font-size: 1.8rem;">📈 Statistiques Transformation</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem;">
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem;">96%</div>
+                        <div style="opacity: 0.9;">Réduction temps création</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem;">100%</div>
+                        <div style="opacity: 0.9;">Élimination frustration</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem;">8x</div>
+                        <div style="opacity: 0.9;">Plus d'albums créés</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem;">0</div>
+                        <div style="opacity: 0.9;">Formation nécessaire</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 style="font-size: 2.8rem; margin-bottom: 2rem;">
+                    🖱️ Testez l'Interface la Plus Simple au Monde
+                </h2>
+                <p style="font-size: 1.4rem; opacity: 0.9; margin-bottom: 3rem;">
+                    <strong>3 clics suffisent. Zéro formation requise.</strong><br>
+                    Même grand-mère et enfants réussissent du premier coup !
+                </p>
+
+                <div class="cta-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Clics pour<br>album pro</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Formation<br>requise</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100s</div>
+                        <div class="stat-label">Temps total<br>création</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Albums<br>possibles</div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 2.5rem; border-radius: 1.5rem; margin: 3rem 0; backdrop-filter: blur(10px);">
+                    <h3 style="color: var(--accent); margin-bottom: 1.5rem; font-size: 1.6rem;">🎁 Défi Simplicité</h3>
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                        <strong>Si vous n'arrivez pas à créer un album en 5 minutes</strong><br>
+                        nous vous remboursons intégralement !
+                    </p>
+                    <p style="opacity: 0.8; font-size: 1rem;">
+                        C'est notre niveau de confiance dans notre interface ultra-simple
+                    </p>
+                </div>
+
+                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://www.albumforge.com/download/" class="btn btn-primary" style="font-size: 1.3rem; padding: 1.5rem 3.5rem;">
+                        🖱️ Test 3 Clics Gratuit
+                    </a>
+                    <a href="albumcraft-fonctionnalites.html" class="btn btn-secondary" style="font-size: 1.3rem; padding: 1.5rem 3.5rem;">
+                        👁️ Voir Démo Interface
+                    </a>
+                </div>
+
+                <p style="margin-top: 2.5rem; font-size: 0.9rem; opacity: 0.7;">
+                    Essai 14 jours • Aucune carte bancaire • Téléchargement immédiat • Support en français, anglais
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--text-dark); color: rgba(255,255,255,0.8); padding: 3rem 0 1rem; text-align: center;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <div>
+                    <div style="font-size: 2rem; color: var(--accent); font-weight: 900;">3</div>
+                    <div style="font-size: 0.9rem;">Clics Maximum</div>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; color: var(--accent); font-weight: 900;">0</div>
+                    <div style="font-size: 0.9rem;">Formation Nécessaire</div>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; color: var(--accent); font-weight: 900;">100%</div>
+                    <div style="font-size: 0.9rem;">Famille Compatible</div>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; color: var(--accent); font-weight: 900;">∞</div>
+                    <div style="font-size: 0.9rem;">Simplicité Garantie</div>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid #374151; padding-top: 2rem;">
+                <p>&copy; 2025 AlbumForge. Interface Ultra Simple • Zéro Formation • Plaisir Garanti</p>
+                <p style="font-size: 0.8rem; margin-top: 1rem;">
+                    🖱️ Made with ❤️ for humans, not experts
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation des stats
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.click-step, .user-story, .benefit-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
+                    
+
+   

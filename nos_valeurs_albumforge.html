@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="fr" itemscope itemtype="https://schema.org/WebPage">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Nos Valeurs - AlbumForge : Technologie Éthique et Solidaire</title>
+    
+    <meta name="description" content="Découvrez les valeurs d'AlbumForge : logiciel photo éthique, solidaire, respectueux. Sans cloud, sans pub, sans abonnement. Technologie au service de l'humain.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #7c3aed;
+            --accent-color: #f59e0b;
+            --success-color: #16a34a;
+            --heart-color: #ef4444;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --background-light: #f9fafb;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            --warm-gradient: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #ef4444 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '💛';
+            position: absolute;
+            top: 2rem;
+            right: 15%;
+            font-size: 4rem;
+            opacity: 0.3;
+            animation: heartbeat 3s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '🌟';
+            position: absolute;
+            bottom: 2rem;
+            left: 10%;
+            font-size: 3rem;
+            opacity: 0.2;
+            animation: twinkle 4s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: rotate(0deg); }
+            50% { opacity: 0.4; transform: rotate(15deg); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+        }
+
+        .manifesto-intro {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            margin: 3rem auto;
+            max-width: 900px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .manifesto-intro p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .manifesto-intro strong {
+            color: #fbbf24;
+            font-weight: 700;
+        }
+
+        /* Values Sections */
+        .values-section {
+            padding: 5rem 0;
+        }
+
+        .values-section:nth-child(even) {
+            background: var(--background-light);
+        }
+
+        .value-block {
+            margin-bottom: 4rem;
+        }
+
+        .value-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .value-emoji {
+            font-size: 3.5rem;
+            animation: gentle-bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes gentle-bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .value-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .value-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        .value-content strong {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* People Stories */
+        .people-stories {
+            background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            margin: 3rem 0;
+            border: 2px solid var(--accent-color);
+        }
+
+        .people-stories h3 {
+            color: #92400e;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .story-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .story-item::before {
+            content: attr(data-emoji);
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            font-size: 2rem;
+            background: var(--white);
+            padding: 0 10px;
+        }
+
+        .story-persona {
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+
+        .story-text {
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .story-need {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            background: #fef3c7;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        /* Solidarity Section */
+        .solidarity-section {
+            background: linear-gradient(135deg, #fecaca 0%, #fbbf24 100%);
+            color: var(--white);
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solidarity-section::before {
+            content: '❤️';
+            position: absolute;
+            top: 2rem;
+            right: 10%;
+            font-size: 6rem;
+            opacity: 0.3;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.05); opacity: 0.5; }
+        }
+
+        .solidarity-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .solidarity-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .solidarity-explanation {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .solidarity-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Environmental Section */
+        .environmental-section {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            padding: 4rem 3rem;
+            border-radius: 1.5rem;
+            margin: 4rem 0;
+            border: 2px solid var(--success-color);
+        }
+
+        .environmental-title {
+            color: var(--success-color);
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .environmental-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .environmental-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .environmental-item h4 {
+            color: var(--success-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Inclusion Section */
+        .inclusion-section {
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            padding: 4rem 3rem;
+            border-radius: 1.5rem;
+            margin: 4rem 0;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .inclusion-title {
+            color: var(--secondary-color);
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .inclusion-principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .principle-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 0.8rem;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .principle-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .principle-text {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Final Message */
+        .final-message {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .final-message::before {
+            content: '📸';
+            position: absolute;
+            top: 2rem;
+            left: 10%;
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .final-message::after {
+            content: '🕊️';
+            position: absolute;
+            bottom: 2rem;
+            right: 15%;
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .final-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .final-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .final-signature {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            font-style: italic;
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 4rem 0;
+            background: var(--background-light);
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .value-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .story-grid,
+            .environmental-grid,
+            .inclusion-principles {
+                grid-template-columns: 1fr;
+            }
+            
+            .manifesto-intro,
+            .solidarity-content {
+                padding: 2rem;
+            }
+        }
+
+        /* Accessibility enhancements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --text-dark: #000000;
+                --text-light: #333333;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-nav">
+                <a href="/fr/" class="logo">AlbumForge</a>
+                <nav>
+                    <a href="/fr/" style="color: var(--primary-color); text-decoration: none;">← Retour accueil</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>💛 Nos Valeurs : Une Promesse Humaine, Pas Algorithmique</h1>
+                <p class="hero-subtitle">L'émotion avant la technologie, l'humain avant l'algorithme</p>
+                
+                <div class="manifesto-intro">
+                    <p>Nous croyons qu'au-delà de la technologie, il y a <strong>l'émotion</strong>. Que le souvenir d'un visage, l'éclat d'un rire ou la chaleur d'un voyage ne devraient jamais être <strong>monnayés, traqués, ou enfermés derrière un écran d'abonnement</strong>.</p>
+                    
+                    <p>Chez AlbumForge, nous avons construit un <strong>sanctuaire numérique</strong> pour vos photos : un logiciel entièrement local, sans le bruit ni l'intrusion du cloud.</p>
+                    
+                    <p>Parce que <strong>ce que vous vivez vous appartient</strong>, et ce que vous créez a le droit de rester en sécurité, chez vous, loin des regards indiscrets. <strong>Votre vie privée n'est pas une option, c'est le fondement de notre promesse.</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <div class="container">
+                <div class="value-block">
+                    <div class="value-header">
+                        <div class="value-emoji">🎯</div>
+                        <h2 class="value-title">Un Outil Pensé pour Chaque Histoire, Chaque Âme</h2>
+                    </div>
+                    
+                    <div class="value-content">
+                        <p>Nous avons conçu AlbumForge pour <strong>les cœurs qui veulent raconter une histoire</strong>, pas pour les algorithmes qui cherchent une donnée. Dans un océan de solutions qui vous transforment en produit, nous avons créé un havre de <strong>simplicité respectueuse</strong>.</p>
+                        
+                        <p>Chaque fonctionnalité a été pensée avec une personne réelle en tête, chaque interface dessinée pour servir l'émotion plutôt que l'engagement artificiel. <strong>AlbumForge ne vous surveille pas, ne vous juge pas, ne vous interrompt pas.</strong> Il fait simplement ce que vous lui demandez : transformer vos souvenirs en beauté tangible.</p>
+                    </div>
+
+                    <div class="people-stories">
+                        <h3>💫 Nous l'avons imaginé pour</h3>
+                        <div class="story-grid">
+                            <div class="story-item" data-emoji="👨‍👩‍👧‍👦">
+                                <div class="story-persona">Les parents débordés</div>
+                                <div class="story-text">"Mon plus grand luxe ? Transformer en un instant des milliers de photos en un album tangible, prêt à être feuilleté avec mes enfants."</div>
+                                <div class="story-need">Le temps est précieux. L'émotion partagée l'est encore plus.</div>
+                            </div>
+
+                            <div class="story-item" data-emoji="👴👵">
+                                <div class="story-persona">Les grands-parents</div>
+                                <div class="story-text">"Je me méfie des 'choses sur Internet'. Je veux simplement tenir entre mes mains un livre de famille, sans créer le moindre compte."</div>
+                                <div class="story-need">La simplicité et la confiance avant tout. Les souvenirs méritent la sérénité.</div>
+                            </div>
+
+                            <div class="story-item" data-emoji="👩‍🏫">
+                                <div class="story-persona">Les enseignants</div>
+                                <div class="story-text">"Je rêve de projets de classe simples et concrets, loin des budgets serrés et des contraintes du numérique éducatif."</div>
+                                <div class="story-need">Créer de la magie pédagogique sans barrière technique ni financière.</div>
+                            </div>
+
+                            <div class="story-item" data-emoji="🫂">
+                                <div class="story-persona">Les personnes réfugiées ou isolées</div>
+                                <div class="story-text">"Mes photos sont les derniers liens avec un foyer perdu. J'ai besoin d'un espace de paix pour les chérir, loin du bruit du monde."</div>
+                                <div class="story-need">Un sanctuaire numérique pour préserver l'irremplaçable avec dignité.</div>
+                            </div>
+
+                            <div class="story-item" data-emoji="🤝">
+                                <div class="story-persona">Les associations</div>
+                                <div class="story-text">"Nous travaillons pour des causes justes. Nous devons documenter nos actions sans jamais compromettre l'anonymat des visages que nous protégeons."</div>
+                                <div class="story-need">Témoigner de l'impact social tout en gardant la confidentialité sacrée.</div>
+                            </div>
+
+                            <div class="story-item" data-emoji="🧒">
+                                <div class="story-persona">Les enfants créatifs</div>
+                                <div class="story-text">"Je peux m'amuser à devenir le narrateur de mon propre monde, racontant une histoire avec trois photos et un sourire."</div>
+                                <div class="story-need">La créativité sans limite d'âge, dans un environnement sûr et bienveillant.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="solidarity-section">
+            <div class="container">
+                <div class="solidarity-content">
+                    <h2 class="solidarity-title">❤️ Une Solidarité qui ne Coûte Rien à l'Humain</h2>
+                    
+                    <div class="solidarity-explanation">
+                        <p>Notre programme de <strong>"licence solidaire"</strong> n'est pas un argument de marketing. C'est une conviction profonde, ancrée dans notre ADN.</p>
+                        
+                        <p>Chez nous, <strong>l'acte d'achat ne finance pas seulement un outil : il crée un pont</strong>. Chaque licence que vous payez offre une licence gratuite à une personne dans le besoin, sans condition, sans inscription, sans "campagne promotionnelle" éphémère.</p>
+                        
+                        <p>C'est un <strong>don concret, direct, humain</strong>. Nous croyons que la technologie doit être un levier d'autonomie pour tous, pas un privilège pour quelques-uns.</p>
+                        
+                        <p>Quand vous choisissez AlbumForge, vous n'achetez pas seulement la liberté de créer vos albums. <strong>Vous offrez cette même liberté à quelqu'un qui en a besoin.</strong> C'est cela, la technologie qui a du sens.</p>
+                    </div>
+
+                    <div class="solidarity-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">1=1</span>
+                            <span class="stat-label">Une licence achetée<br>Une licence offerte</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1247</span>
+                            <span class="stat-label">Licences solidaires<br>distribuées en 2024</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">0€</span>
+                            <span class="stat-label">Frais administratifs<br>sur les dons</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Organisations partenaires<br>dans 15 pays</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1247</span>
+                            <span class="stat-label">Licences solidaires<br>distribuées en 2024</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">0€</span>
+                            <span class="stat-label">Frais administratifs<br>sur les dons</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Organisations partenaires<br>dans 15 pays</span>
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(255, 255, 255, 0.2); border-radius: 1rem; padding: 2rem; margin-top: 2rem; text-align: center;">
+                        <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem;">💝 Impact Réel de Votre Achat</p>
+                        <p style="font-size: 1rem; opacity: 0.95;">Réfugiés documentant leur parcours • Enseignants créant des souvenirs de classe • Familles monoparentales préservant leurs moments précieux • Associations humanitaires protégeant l'anonymat • Personnes âgées isolées gardant le lien avec leurs proches</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <div class="container">
+                <div class="environmental-section">
+                    <h2 class="environmental-title">🌍 Une Alternative Bienveillante face au Gaspillage Numérique</h2>
+                    
+                    <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: var(--text-dark);">Nous avons une aversion pour les <strong>dépendances forcées</strong> et les abonnements qui enferment. AlbumForge est notre réponse : <strong>une licence à vie, une liberté totale</strong>.</p>
+                    
+                    <div class="environmental-grid">
+                        <div class="environmental-item">
+                            <h4>⚡ Liberté Technologique</h4>
+                            <p>Un logiciel qui ne vous demande pas de mettre à jour si vous n'en avez pas envie. Votre rythme, vos choix, votre autonomie.</p>
+                        </div>
+                        
+                        <div class="environmental-item">
+                            <h4>💻 Respect des Anciennes Machines</h4>
+                            <p>AlbumForge tourne sur de vieilles machines pour éviter le gâchis technologique. Pas besoin de changer d'ordinateur pour créer du beau.</p>
+                        </div>
+                        
+                        <div class="environmental-item">
+                            <h4>🚀 Performance Écologique</h4>
+                            <p>Un album de 1500 photos traité en quelques minutes, sans vider la batterie de la planète ni monopoliser vos ressources.</p>
+                        </div>
+                        
+                        <div class="environmental-item">
+                            <h4>🌱 Sobriété Numérique</h4>
+                            <p>Zéro serveur énergivore, zéro transfert de données inutile, zéro empreinte cloud cachée. Juste l'essentiel, efficacement.</p>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--white); padding: 2rem; border-radius: 1rem; margin-top: 2rem; text-align: center;">
+                        <p style="font-size: 1.1rem; color: var(--text-dark); font-weight: 600;">💚 Notre Promesse Environnementale</p>
+                        <p style="font-size: 1rem; color: var(--text-dark); margin-top: 1rem;">AlbumForge consomme <strong>50x moins d'énergie</strong> qu'une solution cloud équivalente et prolonge la vie de votre matériel existant de plusieurs années.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <div class="container">
+                <div class="inclusion-section">
+                    <h2 class="inclusion-title">🏳️‍🌈 Ouvert à tous, parce que le Beau est Universel</h2>
+                    
+                    <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: var(--text-dark);">Notre équipe et nos utilisateurs sont aussi <strong>divers que le monde que nous documentons</strong>. De tous âges, de toutes langues (plus de 50), de tous genres, avec ou sans handicap, avec ou sans papiers.</p>
+                    
+                    <div style="background: var(--white); padding: 2rem; border-radius: 1rem; margin-bottom: 2rem; text-align: center;">
+                        <p style="font-size: 1.2rem; color: var(--text-dark); font-weight: 700; margin-bottom: 1rem;">🌟 Nous célébrons la richesse de chaque histoire</p>
+                        <p style="font-size: 1rem; color: var(--text-dark);">Parce que derrière chaque photo se cache une émotion unique, un moment irremplaçable, une perspective précieuse qui mérite d'être préservée avec respect et beauté.</p>
+                    </div>
+                    
+                    <div class="inclusion-principles">
+                        <div class="principle-item">
+                            <div class="principle-emoji">👶👴</div>
+                            <div class="principle-text">De 8 à 98 ans<br><small>Interface adaptable</small></div>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <div class="principle-emoji">🌍</div>
+                            <div class="principle-text">50+ langues<br><small>Inclusion linguistique</small></div>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <div class="principle-emoji">🏳️‍⚧️</div>
+                            <div class="principle-text">Tous genres<br><small>Respect identités</small></div>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <div class="principle-emoji">♿</div>
+                            <div class="principle-text">Accessibilité renforcée<br><small>Handicaps considérés</small></div>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <div class="principle-emoji">🤝</div>
+                            <div class="principle-text">Sans discrimination<br><small>Accueil inconditionnel</small></div>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <div class="principle-emoji">📜</div>
+                            <div class="principle-text">Avec ou sans papiers<br><small>Humanité avant tout</small></div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--white); padding: 2rem; border-radius: 1rem; margin-top: 2rem; text-align: center;">
+                        <p style="font-size: 1.1rem; color: var(--text-dark); font-weight: 600;">Nous croyons que <strong>la simplicité n'est pas une faiblesse</strong>, que <strong>la discrétion est un droit</strong>, et que <strong>la beauté devrait être un luxe accessible à tous</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-message">
+            <div class="container">
+                <div class="final-content">
+                    <h2 class="final-title">📸 Votre droit le plus précieux ? Raconter votre histoire. En paix.</h2>
+                    
+                    <div class="final-text">
+                        <p>Pas besoin de cloud qui espionne vos moments intimes. Pas besoin d'abonnement qui vous saigne à blanc chaque mois. Pas besoin de maîtriser Photoshop pendant des semaines pour créer quelque chose de beau.</p>
+                        
+                        <p><strong>Vous avez juste besoin de vos souvenirs... et de trois clics pour les transformer en merveille.</strong></p>
+                        
+                        <p>Dans un monde qui vous demande toujours plus de données, plus d'engagement, plus d'abonnements, nous vous offrons quelque chose de rare et précieux :</p>
+                        
+                        <p style="font-size: 1.5rem; font-weight: 800; color: #fbbf24; text-align: center; margin: 2rem 0;">La paix digitale.</p>
+                    </div>
+                    
+                    <div class="final-signature">
+                        C'est cela, notre valeur la plus précieuse :<br>
+                        <strong>vous laisser tranquille, mais accompagné·e</strong> ❤️
+                        <br><br>
+                        — L'équipe AlbumForge
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h3 style="margin-bottom: 2rem; font-size: 2rem; color: var(--text-dark);">Prêt·e à rejoindre une technologie plus humaine ?</h3>
+                <a href="/fr/" class="btn btn-primary">Essayer AlbumForge Gratuitement</a>
+                <a href="/fr/solidaire/" class="btn btn-secondary">En savoir plus sur nos actions solidaires</a>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background: var(--text-dark); color: white; padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <p>&copy; 2024 AlbumForge. Technologie éthique et solidaire.</p>
+            <p style="margin-top: 1rem; opacity: 0.7;">
+                <a href="/fr/privacy/" style="color: white; margin: 0 1rem;">Nos engagements privacy</a>
+                <a href="/fr/solidaire/" style="color: white; margin: 0 1rem;">Actions solidaires</a>
+                <a href="/fr/environnement/" style="color: white; margin: 0 1rem;">Impact environnemental</a>
+                <a href="mailto:valeurs@albumforge.com" style="color: white; margin: 0 1rem;">Nous contacter</a>
+            </p>
+        </div>
+
+        <div style="font-size: 0.85em; color: #666; margin-top: 2em;">
+  <p><strong>🛈 Note :</strong> Cette page exprime les convictions et engagements éthiques de l’équipe AlbumForge. Elle ne constitue pas une garantie contractuelle ni une offre commerciale engageant des performances individuelles. Nous faisons tout notre possible pour que chaque mot reste aligné avec nos actes, techniquement et humainement.</p>
+</div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "Nos Valeurs - AlbumForge : Technologie Éthique et Solidaire",
+      "description": "Découvrez les valeurs d'AlbumForge : logiciel photo éthique, solidaire, respectueux. Sans cloud, sans pub, sans abonnement. Technologie au service de l'humain.",
+      "url": "https://www.albumforge.com/fr/nos-valeurs/",
+      "datePublished": "2025-01-30",
+      "dateModified": "2025-01-30",
+      "inLanguage": "fr",
+      "author": {
+        "@type": "Organization",
+        "name": "AlbumForge - Entreprise à Mission Sociale",
+        "url": "https://www.albumforge.com",
+        "description": "AlbumForge : logiciel photo éthique avec mission sociale - 1 licence achetée = 1 offerte"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AlbumForge",
+        "url": "https://www.albumforge.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.albumforge.com/images/logo.png"
+        },
+        "sameAs": [
+          "https://www.albumforge.com/fr/solidaire/",
+          "https://www.albumforge.com/fr/environnement/"
+        ]
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.albumforge.com/fr/nos-valeurs/"
+      },
+      "about": {
+        "@type": "Organization",
+        "name": "AlbumForge",
+        "description": "Logiciel album photo éthique : sans cloud, sans pub, sans abonnement, avec mission solidaire",
+        "foundingDate": "2023",
+        "knowsAbout": [
+          "Technologie éthique",
+          "Respect vie privée",
+          "Logiciel solidaire",
+          "Impact environnemental réduit",
+          "Inclusion numérique",
+          "Albums photo sans cloud"
+        ],
+        "mission": "Démocratiser la création d'albums photo beaux et respectueux, sans compromis sur la vie privée ni l'éthique",
+        "values": [
+          "Respect absolu de la vie privée utilisateur",
+          "Technologie au service de l'humain",
+          "Solidarité concrète : 1 licence achetée = 1 offerte",
+          "Durabilité et sobriété numérique",
+          "Inclusion et accessibilité universelle",
+          "Transparence et éthique business"
+        ]
+      },
+      "mentions": [
+        {
+          "@type": "SocialImpact",
+          "name": "Programme Licence Solidaire AlbumForge",
+          "description": "Pour chaque licence vendue, AlbumForge en offre une gratuitement à une personne en difficulté"
+        },
+        {
+          "@type": "EnvironmentalImpact",
+          "name": "Logiciel Éco-Responsable",
+          "description": "AlbumForge fonctionne 100% hors-ligne, sur machines anciennes, sans serveurs cloud énergivores"
+        },
+        {
+          "@type": "Accessibility",
+          "name": "Inclusion Numérique Totale",
+          "description": "Interface adaptée tous âges, tous niveaux, accessibilité renforcée, support humain"
+        }
+      ],
+      "keywords": "valeurs AlbumForge, logiciel éthique, technologie solidaire, respect vie privée, sans cloud, sans abonnement, mission sociale, impact environnemental, inclusion numérique",
+      "audience": [
+        {
+          "@type": "Audience",
+          "audienceType": "Familles soucieuses vie privée"
+        },
+        {
+          "@type": "Audience", 
+          "audienceType": "Utilisateurs refusant surveillance numérique"
+        },
+        {
+          "@type": "Audience",
+          "audienceType": "Personnes recherchant technologie éthique"
+        },
+        {
+          "@type": "Audience",
+          "audienceType": "Organisations à mission sociale"
+        }
+      ],
+      "potentialAction": [
+        {
+          "@type": "DownloadAction",
+          "target": "https://www.albumforge.com/fr/",
+          "name": "Rejoindre mouvement technologie éthique AlbumForge"
+        },
+        {
+          "@type": "DonateAction",
+          "target": "https://www.albumforge.com/fr/solidaire/",
+          "name": "Participer programme solidaire AlbumForge"
+        }
+      ],
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "AlbumForge - Site Officiel",
+        "url": "https://www.albumforge.com"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    
+    {
+  "@context": "https://schema.org",
+  "@type": ["AboutPage", "Organization"],
+  "name": "Nos Valeurs AlbumForge - Technologie Éthique et Solidaire",
+  "description": "Découvrez les valeurs d'AlbumForge : sanctuaire numérique pour vos photos, solidarité concrète 1=1, paix digitale. Logiciel éthique sans cloud, sans abonnement.",
+  "url": "https://www.albumforge.com/fr/nos-valeurs/",
+  "datePublished": "2025-01-30",
+  "dateModified": "2025-01-30",
+  "inLanguage": "fr",
+  "author": {
+    "@type": "Organization",
+    "name": "AlbumForge - Entreprise à Mission Éthique",
+    "url": "https://www.albumforge.com",
+    "description": "AlbumForge : sanctuaire numérique pour photos, technologie au service de l'émotion humaine"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AlbumForge",
+    "url": "https://www.albumforge.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.albumforge.com/images/logo.png"
+    },
+    "foundingDate": "2023",
+    "mission": "Créer un sanctuaire numérique pour préserver l'émotion humaine : le souvenir d'un visage, l'éclat d'un rire, la chaleur d'un voyage",
+    "slogan": "La paix digitale pour vos souvenirs"
+  },
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "AlbumForge - Sanctuaire Numérique Photos",
+    "description": "Logiciel album photo éthique : sanctuaire numérique local, sans cloud, sans abonnement. Technologie pensée pour l'émotion, pas pour l'algorithme.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": ["Windows", "macOS", "Linux"],
+    "softwareVersion": "2024.1",
+    "releaseNotes": "Nouvelle version renforçant la paix digitale utilisateur",
+    "featureList": [
+      "Sanctuaire numérique 100% local",
+      "Aucune collecte données émotionnelles",
+      "Interface pensée pour chaque âme",
+      "Préservation dignité souvenirs",
+      "Paix digitale garantie",
+      "Technologie bienveillante"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "49.00",
+      "priceCurrency": "EUR",
+      "description": "Licence à vie - Liberté totale, paix digitale assurée",
+      "availability": "https://schema.org/InStock"
+    }
+  },
+  "coreValues": [
+    {
+      "@type": "Value",
+      "name": "Sanctuaire Numérique",
+      "description": "Préserver l'émotion humaine : souvenir d'un visage, éclat d'un rire, chaleur d'un voyage sans intrusion algorithmique"
+    },
+    {
+      "@type": "Value", 
+      "name": "Technologie pour l'Émotion",
+      "description": "Outil pensé pour les cœurs qui racontent une histoire, pas pour les algorithmes qui cherchent des données"
+    },
+    {
+      "@type": "Value",
+      "name": "Solidarité Concrète 1=1",
+      "description": "Chaque achat crée un pont humain : une licence offerte à une personne dans le besoin"
+    },
+    {
+      "@type": "Value",
+      "name": "Paix Digitale",
+      "description": "Vous laisser tranquille mais accompagné·e - liberté technologique sans dépendance forcée"
+    }
+  ],
+  "targetAudience": [
+    {
+      "@type": "Audience",
+      "audienceType": "Parents débordés",
+      "description": "Luxe de transformer milliers de photos en album tangible instantanément"
+    },
+    {
+      "@type": "Audience",
+      "audienceType": "Grands-parents méfiants du numérique", 
+      "description": "Tenir livre de famille dans les mains sans créer de compte Internet"
+    },
+    {
+      "@type": "Audience",
+      "audienceType": "Enseignants créatifs",
+      "description": "Projets de classe simples, loin des budgets serrés et contraintes numériques"
+    },
+    {
+      "@type": "Audience",
+      "audienceType": "Personnes réfugiées ou isolées",
+      "description": "Espace de paix pour chérir photos, derniers liens avec foyer perdu"
+    },
+    {
+      "@type": "Audience",
+      "audienceType": "Associations à cause juste",
+      "description": "Documenter actions sans compromettre anonymat des visages protégés"
+    },
+    {
+      "@type": "Audience",
+      "audienceType": "Enfants créatifs narrateurs",
+      "description": "Raconter histoire de leur monde avec trois photos et un sourire"
+    }
+  ],
+  "socialImpact": {
+    "@type": "SocialImpact",
+    "name": "Programme Licence Solidaire AlbumForge",
+    "description": "Don concret, direct, humain : chaque achat offre liberté créative à quelqu'un dans le besoin",
+    "beneficiaryType": [
+      "Réfugiés documentant parcours",
+      "Enseignants créant souvenirs classe", 
+      "Familles monoparentales préservant moments précieux",
+      "Associations humanitaires protégeant anonymat",
+      "Personnes âgées isolées gardant lien avec proches"
+    ],
+    "impactMetrics": [
+      {
+        "@type": "QuantitativeValue",
+        "name": "Licences solidaires distribuées 2024",
+        "value": "1247",
+        "description": "Impact direct sur 1247 vies humaines"
+      },
+      {
+        "@type": "QuantitativeValue", 
+        "name": "Organisations partenaires",
+        "value": "50",
+        "description": "Réseau solidaire dans 15 pays"
+      },
+      {
+        "@type": "QuantitativeValue",
+        "name": "Frais administratifs dons",
+        "value": "0",
+        "unitText": "EUR",
+        "description": "100% des dons arrivent aux bénéficiaires"
+      }
+    ]
+  },
+  "environmentalImpact": {
+    "@type": "EnvironmentalImpact", 
+    "name": "Bienveillance face au Gaspillage Numérique",
+    "description": "Alternative aux dépendances forcées : licence à vie, liberté totale, sobriété numérique",
+    "sustainabilityFeatures": [
+      "Fonctionne sur anciennes machines - évite gâchis technologique",
+      "100% hors-ligne - zéro empreinte cloud énergétique", 
+      "Performance écologique - 1500 photos en minutes sans vider batterie planète",
+      "Sobriété numérique - 50x moins d'énergie que solutions cloud équivalentes"
+    ]
+  },
+  "inclusionPrinciples": {
+    "@type": "InclusionPolicy",
+    "name": "Ouverture Universelle - Beauté pour Tous",
+    "description": "Diversité équipe et utilisateurs : tous âges, langues (50+), genres, avec/sans handicap, avec/sans papiers",
+    "accessibilityFeatures": [
+      "Interface adaptable 8-98 ans",
+      "Support 50+ langues inclusion linguistique", 
+      "Respect toutes identités de genre",
+      "Accessibilité renforcée handicaps",
+      "Accueil inconditionnel sans discrimination",
+      "Humanité avant statut administratif"
+    ],
+    "philosophy": "Simplicité n'est pas faiblesse, discrétion est un droit, beauté devrait être luxe accessible à tous"
+  },
+  "uniqueSellingProposition": {
+    "@type": "Thing",
+    "name": "Paix Digitale",
+    "description": "Dans monde demandant toujours plus de données/engagement/abonnements, AlbumForge offre la paix digitale : sanctuaire pour émotions sans surveillance algorithmique"
+  },
+  "keywords": "valeurs AlbumForge, sanctuaire numérique photos, paix digitale, technologie éthique, solidarité 1=1, logiciel sans cloud, émotion avant algorithme, liberté technologique, bienveillance numérique",
+  "mentions": [
+    {
+      "@type": "Concept",
+      "name": "Sanctuaire Numérique",
+      "description": "Espace digital sacré préservant émotions humaines loin de l'intrusion commerciale"
+    },
+    {
+      "@type": "Concept",
+      "name": "Paix Digitale", 
+      "description": "État de sérénité technologique : outils qui servent sans surveiller ni exploiter"
+    },
+    {
+      "@type": "Philosophy",
+      "name": "Émotion avant Algorithme",
+      "description": "Priorité aux cœurs qui racontent histoires plutôt qu'aux machines qui collectent données"
+    }
+  ],
+  "potentialAction": [
+    {
+      "@type": "DownloadAction",
+      "target": "https://www.albumforge.com/fr/",
+      "name": "Rejoindre le sanctuaire numérique AlbumForge"
+    },
+    {
+      "@type": "DonateAction", 
+      "target": "https://www.albumforge.com/fr/solidaire/",
+      "name": "Participer au pont solidaire 1=1"
+    },
+    {
+      "@type": "ReadAction",
+      "target": "https://www.albumforge.com/fr/nos-valeurs/",
+      "name": "Découvrir promesse paix digitale"
+    }
+  ],
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "AlbumForge - Sanctuaire Numérique Officiel",
+    "url": "https://www.albumforge.com",
+    "description": "Site officiel du sanctuaire numérique pour vos émotions photographiques"
+  }
+}
+    </script>
+    <script>
+        // Add interactive animations and engagement tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate value blocks on scroll
+            const valueBlocks = document.querySelectorAll('.value-block');
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        
+                        // Animate emoji with delay
+                        const emoji = entry.target.querySelector('.value-emoji');
+                        if (emoji) {
+                            setTimeout(() => {
+                                emoji.style.transform = 'scale(1.1)';
+                                setTimeout(() => {
+                                    emoji.style.transform = 'scale(1)';
+                                }, 300);
+                            }, 200);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            valueBlocks.forEach(block => {
+                block.style.opacity = '0';
+                block.style.transform = 'translateY(50px)';
+                block.style.transition = 'all 0.8s ease';
+                observer.observe(block);
+            });
+
+            // Animate story cards with stagger effect
+            const storyItems = document.querySelectorAll('.story-item');
+            storyItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = `all 0.6s ease ${index * 0.1}s`;
+                
+                observer.observe(item);
+            });
+
+            // Add hover effects to story items
+            storyItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                    this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.15)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                });
+            });
+
+            // Animate solidarity stats counter
+            const statNumbers = document.querySelectorAll('.stat-number');
+            let hasAnimated = false;
+
+            const statsObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !hasAnimated) {
+                        hasAnimated = true;
+                        
+                        statNumbers.forEach(stat => {
+                            const finalValue = stat.textContent;
+                            const isNumber = !isNaN(finalValue);
+                            
+                            if (isNumber && finalValue !== '0€' && finalValue !== '1=1') {
+                                let currentValue = 0;
+                                const increment = Math.ceil(finalValue / 50);
+                                
+                                const counter = setInterval(() => {
+                                    currentValue += increment;
+                                    if (currentValue >= finalValue) {
+                                        stat.textContent = finalValue;
+                                        clearInterval(counter);
+                                    } else {
+                                        stat.textContent = currentValue;
+                                    }
+                                }, 30);
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const solidaritySection = document.querySelector('.solidarity-stats');
+            if (solidaritySection) {
+                statsObserver.observe(solidaritySection);
+            }
+
+            // Add click tracking for engagement
+            const ctaButtons = document.querySelectorAll('.btn');
+            ctaButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Add click animation
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                    
+                    // Track engagement
+                    console.log('Values page CTA clicked:', this.textContent);
+                });
+            });
+
+            // Add parallax effect to hero emojis
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const heroEmojis = document.querySelectorAll('.hero::before, .hero::after');
+                
+                heroEmojis.forEach(emoji => {
+                    const speed = 0.5;
+                    emoji.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+
+            // Add accessibility enhancements
+            const focusableElements = document.querySelectorAll('a, button, [tabindex]');
+            focusableElements.forEach(element => {
+                element.addEventListener('focus', function() {
+                    this.style.outline = '3px solid var(--primary-color)';
+                    this.style.outlineOffset = '2px';
+                });
+                
+                element.addEventListener('blur', function() {
+                    this.style.outline = 'none';
+                });
+            });
+
+            // Add emotional engagement tracking
+            const emotionalSections = [
+                { selector: '.people-stories', emotion: 'empathy' },
+                { selector: '.solidarity-section', emotion: 'solidarity' },
+                { selector: '.environmental-section', emotion: 'environmental_care' },
+                { selector: '.inclusion-section', emotion: 'inclusion' },
+                { selector: '.final-message', emotion: 'inspiration' }
+            ];
+
+            emotionalSections.forEach(section => {
+                const element = document.querySelector(section.selector);
+                if (element) {
+                    const emotionObserver = new IntersectionObserver(function(entries) {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                console.log(`User engaged with ${section.emotion} section`);
+                                // This could be sent to analytics to understand emotional journey
+                            }
+                        });
+                    }, { threshold: 0.7 });
+                    
+                    emotionObserver.observe(element);
+                }
+            });
+
+            // Keyboard shortcuts for better accessibility
+            document.addEventListener('keydown', function(e) {
+                // Alt + H to go to hero
+                if (e.altKey && e.key === 'h') {
+                    document.querySelector('.hero').scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                // Alt + V to go to values
+                if (e.altKey && e.key === 'v') {
+                    document.querySelector('.values-section').scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                // Alt + S to go to solidarity
+                if (e.altKey && e.key === 's') {
+                    document.querySelector('.solidarity-section').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add reading time estimation
+        function estimateReadingTime() {
+            const text = document.body.innerText;
+            const wordsPerMinute = 200;
+            const words = text.split(' ').length;
+            const readingTime = Math.ceil(words / wordsPerMinute);
+            
+            console.log(`Estimated reading time: ${readingTime} minutes`);
+            
+            // Could add this to the page header
+            const header = document.querySelector('header .container');
+            if (header && readingTime > 0) {
+                const readingTimeElement = document.createElement('div');
+                readingTimeElement.style.fontSize = '0.9rem';
+                readingTimeElement.style.color = 'var(--text-light)';
+                readingTimeElement.style.textAlign = 'center';
+                readingTimeElement.style.marginTop = '0.5rem';
+                readingTimeElement.textContent = `⏱️ Lecture : ${readingTime} min`;
+                header.appendChild(readingTimeElement);
+            }
+        }
+
+        // Call reading time estimation after page load
+        window.addEventListener('load', estimateReadingTime);
+    </script>
+</body>
+</html>
